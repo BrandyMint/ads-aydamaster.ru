@@ -36,25 +36,32 @@ gem 'paperclip'
 gem "aasm"
 gem "haml-rails"
 gem "formtastic"
-gem "formtastic_datepicker_inputs", :git => "https://github.com/demersus/formtastic_datepicker_inputs.git"
+gem "simple_form"
+# gem "formtastic_datepicker_inputs", :git => "https://github.com/demersus/formtastic_datepicker_inputs.git"
 gem "jquery-rails", ">= 0.2.6"
 gem "best_in_place", :git => "https://github.com/bernat/best_in_place.git"
 gem "inherited_resources"
-gem "awesome_print", :group => :development, :require => "ap"
-gem "wirble", :group => :development, :require => "wirble"
-gem "ruby-debug", :group => [:test, :development]
-gem "rcov", :group => [:test, :development]
-gem "rspec", :group => [:test, :development]
-gem "rspec-rails", :group => [:test, :development]
-gem "shoulda", :group => [:test, :development]
-gem "factory_girl_rails", :group => [:test, :development]
-gem "factory_girl_generator", :group => [:test, :development]
-gem "russian", :git => "https://github.com/dima4p/russian.git"
-#gem "vlad", :group => :development
-#gem "vlad-git", :group => :development
-gem "hpricot", :group => :development
-gem "ruby_parser", :group => :development
 gem "devise", :git => "git://github.com/plataformatec/devise.git", :branch => "omniauth"
 gem "compass"
-gem "nifty-generators", :group => :development
 gem "stateful_link", :git => "git://github.com/dapi/stateful_link.git"
+gem "russian", :git => "https://github.com/dima4p/russian.git"
+
+group :test, :development do 
+  gem "ruby-debug"
+  gem "rcov"
+  gem "rspec"
+  gem "rspec-rails"
+  gem "shoulda"
+  gem "factory_girl_rails"
+  gem "factory_girl_generator"
+end
+
+group :development do 
+  gem "wirble", :require => "wirble"
+  gem 'vlad', ">=2.1.0" # :git => "https://github.com/seattlerb/vlad.git" 
+  gem "vlad-git"
+  gem "vlad-nginx"
+  gem "hpricot"
+  gem "ruby_parser"
+  gem "nifty-generators"
+end

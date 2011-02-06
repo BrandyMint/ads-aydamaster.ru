@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-set :application, "chebytoday.ru"
+set :application, "aydamaster.ru"
 set :domain, "chebytoday.ru"
 set :rails_env, "production"
-#  set :ssh_flags, "-p 222"
 set :deploy_to, "/usr/local/www/aydamaster.ru"
 #set :revision,              'master'
 set :keep_releases,	3
-# set :rsync_flags, "--rsh ssh"
 set :repository, 'ssh://dapi.orionet.ru/home/danil/code/aydamaster.ru/.git/'
+
+#set :web_command, "sudo /usr/local/etc/rc.d/nginx"
+set :web_command, "sudo /usr/local/sbin/nginx"
 
 # for rails
 set :shared_paths, {
@@ -26,19 +27,10 @@ namespace :vlad do
       vlad:update
       vlad:migrate
       vlad:start_web
-      vlad:restart_scheduler
+      vlad:cleanup
     ]
-#      vlad:cleanup
 
-  # 
 
-  desc "Restart scheduler"
-  remote_task :restart_scheduler do
-    run "cd #{current_release}; RAILS_ENV=production rake scheduler:start"
-  end
-  
-  # # Add an after_update hook
-  # #
   remote_task :update do
     Rake::Task['vlad:share_configs'].invoke
     Rake::Task['vlad:bundle'].invoke
@@ -59,15 +51,7 @@ namespace :vlad do
     #run "cd #{current_release}; bundle install --deployment"
   end
   
-  # remote_task :after_setup do
-  #   # Link to shared resources, if you have them in .gitignore
-  #   run "mkdir #{deploy_to}/logs"
-  # end
-  
-  #  #
-  #  # The after_update hook, which is run after vlad:update
-  #  #
-  desc "Share config files (database.yml and app_config.yml)"
+  desc "Share config files (database.yml and settings"
   remote_task :share_configs do
     puts "Share config files"
     run "cd #{current_release}/config/; scp #{local_link}/config/database.yml . ; scp -r #{local_link}/config/settings* ."
@@ -76,9 +60,25 @@ namespace :vlad do
   desc "Exec bundle --deployment"
   remote_task :bundle do
     puts "Exec bundle"
-    #run "cd #{current_release}; sudo bundle install --deployment" # На FreeBSD только через sudo
     run "cd #{current_release}; sudo bundle --without development --without test" # На FreeBSD только через sudo
-    # chown current_release after bundle
   end
+
+  # Fix vlad's mistake
+  remote_task :migrate, :roles => :app do
+    break unless target_host == Rake::RemoteTask.hosts_for(:app).first
+    
+    directory = case migrate_target.to_sym
+                when :current then current_path
+                when :latest  then current_release
+                else
+                  raise(ArgumentError,
+                        "unknown migration target #{migrate_target.inspect}")
+                end
+
+    run ["cd #{directory}",
+         "#{rake_cmd} RAILS_ENV=#{rails_env} db:migrate #{migrate_args}"
+        ].join(" && ")
+  end
+
 
 end
