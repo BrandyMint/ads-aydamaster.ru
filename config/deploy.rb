@@ -36,6 +36,10 @@ namespace :vlad do
     Rake::Task['vlad:bundle'].invoke
   end
 
+  remote_task :setup do
+    Rake::Task['vlad:update_gems'].invoke
+  end
+
   #
   # Fixes vlad/passenger bad latest_release path
   #
