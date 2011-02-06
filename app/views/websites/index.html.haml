@@ -1,0 +1,7 @@
+%h1 Рекламные площадки
+
+= link_to '[+] Добавить площадку', new_website_path
+
+- @websites.each do |website|
+  %h2= link_to website, edit_website_path( website )
+  = render 'places/list', :website => website

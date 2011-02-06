@@ -1,0 +1,27 @@
+%h1 Listing ads
+
+%table
+  %tr
+    %th User
+    %th Name
+    %th State
+    %th Link
+    %th
+    %th
+    %th
+
+  - @ads.each do |ad|
+    %tr
+      %td= image_tag ad.banner.url(:thumb)
+      %td
+        = ad.name
+        .desc= "(#{ad.ad_style})"
+      %td= link_to ad.link
+      %td= ad.state
+      %td= link_to 'Show', ad
+      %td= link_to 'Edit', "edit_ad_path(ad)"
+      %td= link_to 'Destroy', ad, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Ad', new_ad_path

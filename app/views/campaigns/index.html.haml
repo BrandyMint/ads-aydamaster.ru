@@ -1,0 +1,27 @@
+%h1 Listing campaigns
+
+%table
+  %tr
+    %th Place
+    %th Ad
+    %th State
+    %th Start at
+    %th Stop at
+    %th
+    %th
+    %th
+
+  - @campaigns.each do |campaign|
+    %tr
+      %td= campaign.place_id
+      %td= campaign.ad_id
+      %td= campaign.state
+      %td= campaign.start_at
+      %td= campaign.stop_at
+      %td= link_to 'Show', campaign
+      %td= link_to 'Edit', edit_campaign_path(campaign)
+      %td= link_to 'Destroy', campaign, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Campaign', new_campaign_path

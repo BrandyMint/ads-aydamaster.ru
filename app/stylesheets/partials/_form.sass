@@ -1,0 +1,37 @@
+// Only apply the blueprint form styles to forms with
+// a class of "bp". This makes it easier to style
+// forms from scratch if you need to.
+
+
+@import formtastic_base
+// @import skintastic
+
+form
+  width: 420px
+  padding: 20px
+  background: $form-bg
+  border: none
+  +box-shadow
+  +border-radius
+  margin-bottom: 20px
+  // +float-form("300px")
+  // background: $form-bg
+  // +reset-form
+  // +formtastic
+  //(410px,100px,300px,12px,"right",true)
+  +float-form-left(400px,120px,150px,0px,"right")
+  li
+    padding-bottom: 10px
+  fieldset
+    padding: 10px
+    margin-bottom: 10px
+
+  li.error
+    color: red
+    input
+      border-color: red
+    .inline-errors
+      clear: both
+      padding-top: 0px
+
+//  +blueprint-form

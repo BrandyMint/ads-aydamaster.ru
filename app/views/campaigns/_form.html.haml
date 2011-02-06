@@ -1,0 +1,10 @@
+= semantic_form_for @campaign do |f|
+  = f.error_messages
+  = f.input :place_id, :as => :hidden, :value => @place.id
+  - f.inputs do
+    = f.input :place, :input_html => { :disabled => true }
+    - ads = @place.ad_style.ads.ready
+    = f.input :ad, :collection => ads, :hint => "Баннеров доступно: #{ads.count}"
+    = f.input :start_date, :as => :date_picker
+    = f.input :stop_date, :as => :date_picker
+  = f.submit

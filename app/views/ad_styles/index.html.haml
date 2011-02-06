@@ -1,0 +1,21 @@
+%h1 Listing ad_styles
+
+%table
+  %tr
+    %th Width
+    %th Height
+    %th
+    %th
+    %th
+
+  - @ad_styles.each do |ad_style|
+    %tr
+      %td= ad_style.width
+      %td= ad_style.height
+      %td= link_to 'Show', ad_style
+      %td= link_to 'Edit', edit_ad_style_path(ad_style)
+      %td= link_to 'Destroy', ad_style, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Ad style', new_ad_style_path

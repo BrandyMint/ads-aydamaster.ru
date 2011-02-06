@@ -1,0 +1,7 @@
+= semantic_form_for @ad, :html => { :multipart => true } do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :banner, :as => :file
+    = f.input :link, :as => :url
+    = f.input :name
+    = f.submit

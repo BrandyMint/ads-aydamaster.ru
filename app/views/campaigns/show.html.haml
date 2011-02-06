@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Place:
+  = @campaign.place_id
+%p
+  %b Ad:
+  = @campaign.ad_id
+%p
+  %b State:
+  = @campaign.state
+%p
+  %b Start at:
+  = @campaign.start_date
+%p
+  %b Stop at:
+  = @campaign.stop_date
+
+= link_to 'Edit', edit_campaign_path(@campaign)
+\|
+= link_to 'Back', campaigns_path
