@@ -16,13 +16,6 @@ GIT
       warden (~> 1.0.0)
 
 GIT
-  remote: https://github.com/bernat/best_in_place.git
-  revision: ea9eba47d5b3403330ef99e5d62bffa318902138
-  specs:
-    best_in_place (0.1.8)
-      rails (~> 3.0.0)
-
-GIT
   remote: https://github.com/dima4p/russian.git
   revision: 0af1e31cbec3a7907c17364453a0a8b0f64a0c4a
   specs:
@@ -178,7 +171,6 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
-  best_in_place!
   compass
   devise!
   factory_girl_generator
