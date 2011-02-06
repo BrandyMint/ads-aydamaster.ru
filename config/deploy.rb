@@ -26,7 +26,7 @@ namespace :vlad do
   task "deploy" => %w[
       vlad:update
       vlad:migrate
-      vlad:web:start
+      vlad:web:reload
       vlad:cleanup
     ]
 
