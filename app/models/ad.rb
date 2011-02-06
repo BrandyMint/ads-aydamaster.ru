@@ -28,11 +28,11 @@ class Ad < ActiveRecord::Base
   aasm_state :archive        # Удален, в архиве
 
 
-  before_save :set_size
+  before_save :set_geometry
   before_save :set_name
 
   
-  def set_size
+  def set_geometry
     g = Paperclip::Geometry.from_file( banner.to_file )
     self.width, self.height = g.width, g.height
     self.ad_style = AdStyle.find_or_create_by_width_and_height( g.width, g.height )

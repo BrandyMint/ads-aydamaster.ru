@@ -26,8 +26,8 @@ class Place < ActiveRecord::Base
   aasm_state :active     # На площадке висят баннера
   aasm_state :archive    # Площадка удалена
   
-  def size=(size)
-    self.ad_style = AdStyle.find_by_width_and_height( *size.split('x') ) || fail( "No such style: #{size}" )
+  def geometry=(geometry)
+    self.ad_style = AdStyle.find_by_width_and_height( *geometry.split('x') ) || fail( "No such style: #{geometry}" )
   end
 
   def to_s

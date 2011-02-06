@@ -6,7 +6,7 @@ class AdStyle < ActiveRecord::Base
 
 
   def to_s
-    geometry     #name? ? "#{size} #{name}" : size
+    geometry
   end
   
   alias_method :to_label, :to_s

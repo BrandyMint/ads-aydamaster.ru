@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Aydamarket::Application.load_tasks
+Aydamaster::Application.load_tasks
