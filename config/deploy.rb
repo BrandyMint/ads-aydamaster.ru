@@ -68,7 +68,7 @@ namespace :vlad do
   end
 
   # Fix vlad's mistake
-  remote_task :migrate, :roles => :app do
+  remote_task :migrate2, :roles => :app do
     break unless target_host == Rake::RemoteTask.hosts_for(:app).first
     
     directory = case migrate_target.to_sym
