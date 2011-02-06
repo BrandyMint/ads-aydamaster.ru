@@ -10,8 +10,6 @@
 # http://bannermaker.chaika.net.ua/formats.php
 # http://fleek.org/standartnye-razmery-bannerov/
 
-# AdStyle.destroy_all
-
 %w[728-90-ведущий_стенд
 468-60-длинный_баннер
 336-280-большой_прямоугольник
@@ -31,8 +29,7 @@
 200-200].each do |s|
   s.gsub!('_',' ')
   a=s.split('-')
-  a[2]||="#{a[0]}x#{a[1]}"
-  AdStyle.create!({
+  Geometry.create!({
                     :width => a[0],
                     :height => a[1],
                     :name => a[2]
@@ -43,22 +40,23 @@ end
 
 
 
-user = User.find_by_email ('blogger@aydamaster.ru') || User.create(:email=>'blogger@aydamaster.ru',:password=>'test',:password_confirmation=>'test')
+user = User.find_by_email('blogger@aydamaster.ru') || User.create!(:email=>'blogger@aydamaster.ru',:password=>'test',:password_confirmation=>'test')
 z = user.websites.find_by_domain('zhazhda.ru') || user.websites.create!( :domain=>'zhazhda.ru' )
 
-z.places.create([
-    { :name=>'right01',
-      :geometry=>'200x200' }, 
-    { :name=>'right02',
-      :geometry=>'200x200' },
-    { :name=>'top',
-      :geometry=>'468x60' }, 
-    { :name=>'bottom',
-      :geometry=>'468x60' }, 
-    { :name=>'middle',
-      :geometry=>'468x60' }
-  ]
-  )
+[{ :name=>'right01',
+   :geometry=>'200x200' }, 
+ { :name=>'right02',
+   :geometry=>'200x200' },
+ { :name=>'top',
+   :geometry=>'468x60' }, 
+ { :name=>'bottom',
+   :geometry=>'468x60' }, 
+ { :name=>'middle',
+   :geometry=>'468x60' }
+].each do |g|
+  z.places.create! g
+end
+
 (1..9).each do |i|
   z.places.create!(
     :name=>"left0#{i}",

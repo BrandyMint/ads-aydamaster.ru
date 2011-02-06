@@ -2,13 +2,9 @@ Aydamaster::Application.routes.draw do
 
 
   resources :campaigns
-
-  resources :ads
-
-  resources :ad_styles
-
+  resources :banners
+  resources :geometries
   resources :places
-  
   resources :websites do
     resources :places
   end

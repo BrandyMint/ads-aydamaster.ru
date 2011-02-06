@@ -1,4 +1,4 @@
-%h1 Listing ads
+%h1 Listing banners
 
 %table
   %tr
@@ -10,12 +10,12 @@
     %th
     %th
 
-  - @ads.each do |ad|
+  - @banners.each do |ad|
     %tr
       %td= image_tag ad.banner.url(:thumb)
       %td
         = ad.name
-        .desc= "(#{ad.ad_style})"
+        .desc= "(#{ad.geometry})"
       %td= link_to ad.link
       %td= ad.state
       %td= link_to 'Show', ad

@@ -1,8 +1,8 @@
-class AdStylesController < ApplicationController
+class GeometriesController < ApplicationController
   # GET /ad_styles
   # GET /ad_styles.xml
   def index
-    @ad_styles = AdStyle.all
+    @ad_styles = Geometry.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class AdStylesController < ApplicationController
   # GET /ad_styles/1
   # GET /ad_styles/1.xml
   def show
-    @ad_style = AdStyle.find(params[:id])
+    @ad_style = Geometry.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class AdStylesController < ApplicationController
   # GET /ad_styles/new
   # GET /ad_styles/new.xml
   def new
-    @ad_style = AdStyle.new
+    @ad_style = Geometry.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class AdStylesController < ApplicationController
 
   # GET /ad_styles/1/edit
   def edit
-    @ad_style = AdStyle.find(params[:id])
+    @ad_style = Geometry.find(params[:id])
   end
 
   # POST /ad_styles
   # POST /ad_styles.xml
   def create
-    @ad_style = AdStyle.new(params[:ad_style])
+    @ad_style = Geometry.new(params[:ad_style])
 
     respond_to do |format|
       if @ad_style.save
@@ -56,7 +56,7 @@ class AdStylesController < ApplicationController
   # PUT /ad_styles/1
   # PUT /ad_styles/1.xml
   def update
-    @ad_style = AdStyle.find(params[:id])
+    @ad_style = Geometry.find(params[:id])
 
     respond_to do |format|
       if @ad_style.update_attributes(params[:ad_style])
@@ -72,7 +72,7 @@ class AdStylesController < ApplicationController
   # DELETE /ad_styles/1
   # DELETE /ad_styles/1.xml
   def destroy
-    @ad_style = AdStyle.find(params[:id])
+    @ad_style = Geometry.find(params[:id])
     @ad_style.destroy
 
     respond_to do |format|

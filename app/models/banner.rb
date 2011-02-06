@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-class Ad < ActiveRecord::Base
+class Banner < ActiveRecord::Base
   belongs_to :user
-  belongs_to :ad_style
+  belongs_to :geometry
 
   has_many :campaigns
 
@@ -35,16 +35,11 @@ class Ad < ActiveRecord::Base
   def set_geometry
     g = Paperclip::Geometry.from_file( banner.to_file )
     self.width, self.height = g.width, g.height
-    self.ad_style = AdStyle.find_or_create_by_width_and_height( g.width, g.height )
+    self.geometry = Geometry.find_or_create_by_width_and_height( g.width, g.height )
   end
-
 
   def set_name
     self.name = banner.original_filename unless self.name?
-  end
-
-  def geometry
-    "#{width}x#{height}"
   end
 
 end

@@ -37,3 +37,6 @@ tmp/*
 db/*.sqlite3
 db/schema.rb
 features/rcov/
+/public/stylesheets/ie.css
+/public/stylesheets/print.css
+/public/stylesheets/screen.css

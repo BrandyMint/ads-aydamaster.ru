@@ -3,7 +3,7 @@ class CreatePlaces < ActiveRecord::Migration
     create_table :places do |t|
       t.string :name
       t.integer :website_id
-      t.integer :ad_style_id
+      t.integer :geometry_id
 
       t.timestamps
     end

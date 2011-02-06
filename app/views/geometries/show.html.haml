@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Width:
+  = @geometry.width
+%p
+  %b Height:
+  = @geometry.height
+
+= link_to 'Edit', edit_geometry_path(@geometry)
+\|
+= link_to 'Back', geometries_path

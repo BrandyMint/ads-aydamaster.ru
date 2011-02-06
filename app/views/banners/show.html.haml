@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @banner.user_id
+%p
+  %b Name:
+  = @banner.name
+%p
+  %b Width:
+  = @banner.width
+%p
+  %b Height:
+  = @banner.height
+%p
+  %b Ad style:
+  = @banner.geometry_id
+%p
+  %b State:
+  = @banner.state
+%p
+  %b Link:
+  = @banner.link
+
+%p
+  = image_tag @banner.banner.url
+
+= link_to 'Edit', edit_ad_path(@banner)
+\|
+= link_to 'Back', banners_path

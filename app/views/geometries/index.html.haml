@@ -1,0 +1,21 @@
+%h1 Listing geometries
+
+%table
+  %tr
+    %th Width
+    %th Height
+    %th
+    %th
+    %th
+
+  - @geometries.each do |geometry|
+    %tr
+      %td= geometry.width
+      %td= geometry.height
+      %td= link_to 'Show', geometry
+      %td= link_to 'Edit', edit_geometry_path(geometry)
+      %td= link_to 'Destroy', geometry, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Ad style', new_geometry_path
