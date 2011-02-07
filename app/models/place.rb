@@ -32,8 +32,10 @@ class Place < ActiveRecord::Base
   end
 
   def to_s
-    name
+    "#{name} #{geometry}"
   end
+
+  alias_method :to_label, :to_s
 
   # TODO Сделать генерацию непоследовательного uid,
   # по нему на место ссылаются с сайтов

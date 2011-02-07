@@ -1,10 +1,12 @@
 = semantic_form_for @campaign do |f|
   = f.error_messages
-  = f.input :place_id, :as => :hidden, :value => @campaign.place_id
+  -# = f.input :place_id, :as => :hidden, :value => @campaign.place_id
   - f.inputs do
-    = f.input :place, :input_html => { :disabled => true }
-    - banners = @campaign.place.geometry.banners.ready
-    = f.input :ad, :collection => banners, :hint => "Баннеров доступно: #{banners.count}"
+    -# = f.input :place, :input_html => { :disabled => true }
+    = f.input :place, :collection => current_user.places
+    -# - banners = @campaign.place.geometry.banners.ready
+    - banners = current_user.banners
+    = f.input :banner, :collection => banners, :hint => "Баннеров доступно: #{banners.count}"
     = f.input :start_date, :as => :date_picker
     = f.input :stop_date, :as => :date_picker
   = f.submit

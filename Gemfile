@@ -34,13 +34,17 @@ gem 'paperclip'
 # end
 
 gem "aasm"
+gem "state_machine"
 gem "haml-rails"
 gem "formtastic"
+gem "formtastic_datepicker_inputs", :git => "https://github.com/demersus/formtastic_datepicker_inputs.git"
 gem "simple_form"
-# gem "formtastic_datepicker_inputs", :git => "https://github.com/demersus/formtastic_datepicker_inputs.git"
+
+gem 'inherited_resources', '~> 1.2.1'
+gem "responders"
+
 gem "jquery-rails", ">= 0.2.6"
 # gem "best_in_place", :git => "https://github.com/bernat/best_in_place.git"
-gem "inherited_resources"
 gem "devise", :git => "git://github.com/plataformatec/devise.git", :branch => "omniauth"
 gem "compass"
 gem "stateful_link", :git => "git://github.com/dapi/stateful_link.git"

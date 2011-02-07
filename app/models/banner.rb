@@ -31,6 +31,7 @@ class Banner < ActiveRecord::Base
   before_save :set_geometry
   before_save :set_name
 
+  # TODO Валидацию на размеры баннеры и формата места
   
   def set_geometry
     g = Paperclip::Geometry.from_file( banner.to_file )
@@ -41,5 +42,11 @@ class Banner < ActiveRecord::Base
   def set_name
     self.name = banner.original_filename unless self.name?
   end
+
+  def to_s
+    "#{name} #{geometry}"
+  end
+  
+  alias_method :to_label, :to_s
 
 end

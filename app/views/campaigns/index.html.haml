@@ -3,7 +3,7 @@
 %table
   %tr
     %th Place
-    %th Ad
+    %th Banner
     %th State
     %th Start at
     %th Stop at
@@ -13,11 +13,11 @@
 
   - @campaigns.each do |campaign|
     %tr
-      %td= campaign.place_id
-      %td= campaign.ad_id
+      %td= campaign.place
+      %td= image_tag campaign.banner.banner.url(:thumb)
       %td= campaign.state
-      %td= campaign.start_at
-      %td= campaign.stop_at
+      %td= campaign.start_date
+      %td= campaign.stop_date
       %td= link_to 'Show', campaign
       %td= link_to 'Edit', edit_campaign_path(campaign)
       %td= link_to 'Destroy', campaign, :confirm => 'Are you sure?', :method => :delete

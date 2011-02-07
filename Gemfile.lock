@@ -16,6 +16,16 @@ GIT
       warden (~> 1.0.0)
 
 GIT
+  remote: https://github.com/demersus/formtastic_datepicker_inputs.git
+  revision: 34a042ba4fcae1d9e8781bae360f53ae1f3b6928
+  specs:
+    formtastic_datepicker_inputs (1.0.0)
+      actionpack (>= 2.3.7)
+      activesupport (>= 2.3.7)
+      formtastic
+      i18n (>= 0.4.0)
+
+GIT
   remote: https://github.com/dima4p/russian.git
   revision: 0af1e31cbec3a7907c17364453a0a8b0f64a0c4a
   specs:
@@ -150,6 +160,7 @@ GEM
     shoulda (2.11.3)
     simple_form (1.3.0)
       rails (~> 3.0.0)
+    state_machine (0.9.4)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
@@ -176,9 +187,10 @@ DEPENDENCIES
   factory_girl_generator
   factory_girl_rails
   formtastic
+  formtastic_datepicker_inputs!
   haml-rails
   hpricot
-  inherited_resources
+  inherited_resources (~> 1.2.1)
   jquery-rails (>= 0.2.6)
   nifty-generators
   paperclip
@@ -186,6 +198,7 @@ DEPENDENCIES
   rails (= 3.0.3)
   rails_config
   rcov
+  responders
   rspec
   rspec-rails
   ruby-debug
@@ -193,6 +206,7 @@ DEPENDENCIES
   russian!
   shoulda
   simple_form
+  state_machine
   stateful_link!
   vlad (>= 2.1.0)
   vlad-git

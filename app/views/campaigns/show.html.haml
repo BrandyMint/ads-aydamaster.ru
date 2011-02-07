@@ -1,11 +1,9 @@
-%p#notice= notice
-
 %p
   %b Place:
-  = @campaign.place_id
+  = @campaign.place
 %p
-  %b Ad:
-  = @campaign.ad_id
+  %b Banner:
+  %td= image_tag @campaign.banner.banner.url(:thumb)
 %p
   %b State:
   = @campaign.state

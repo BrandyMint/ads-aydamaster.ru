@@ -1,16 +1,18 @@
-class CampaignsController < InheritedResources::Base
-  respond_to :html, :json
-  actions :all
+class CampaignsController < ApplicationController
+  inherit_resources
+
+  # belongs_to :place
+  # belongs_to :banner
+
+  respond_to :html, :json, :xml
+  responders :flash, :http_cache
   
-  # before_filter :load_website, :only => [:new, :create, :index]
-#  before_filter :load_place#, :except => :index
-
-
+  before_filter :authenticate_user!
+  
   private
 
-  # def load_place
-  #   return @place = resource.place if resource
-  #   @place = Place.find params[:campaign][:place_id] if params[:campaign][:place_id]
-  # end
+  def begin_of_association_chain
+    current_user
+  end
 
 end

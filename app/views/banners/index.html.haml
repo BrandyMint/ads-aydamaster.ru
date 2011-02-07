@@ -10,17 +10,17 @@
     %th
     %th
 
-  - @banners.each do |ad|
+  - @banners.each do |banner|
     %tr
-      %td= image_tag ad.banner.url(:thumb)
+      %td= image_tag banner.banner.url(:thumb)
       %td
-        = ad.name
-        .desc= "(#{ad.geometry})"
-      %td= link_to ad.link
-      %td= ad.state
-      %td= link_to 'Show', ad
-      %td= link_to 'Edit', "edit_banner_path(ad)"
-      %td= link_to 'Destroy', ad, :confirm => 'Are you sure?', :method => :delete
+        = banner.name
+        .desc= "(#{banner.geometry})"
+      %td= link_to banner.link
+      %td= banner.state
+      %td= link_to 'Show', banner
+      %td= link_to 'Edit', "edit_banner_path(banner)"
+      %td= link_to 'Destroy', banner, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
