@@ -16,16 +16,12 @@ class Banner < ActiveRecord::Base
   # TODO add flash
   validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png', 'image/gif']
 
-  include AASM
-  
-  aasm_column :state
-  
-  aasm_initial_state :ready
-  
-  aasm_state :active         # Используется в кампания
-  aasm_state :ready          # Готов к использованию, не используется
-  aasm_state :paused         # Времено отключен
-  aasm_state :archive        # Удален, в архиве
+
+  state_machine :state, :initial=>:ready
+  # aasm_state :active         # Используется в кампания
+  # aasm_state :ready          # Готов к использованию, не используется
+  # aasm_state :paused         # Времено отключен
+  # aasm_state :archive        # Удален, в архиве
 
 
   before_save :set_geometry

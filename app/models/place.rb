@@ -13,16 +13,12 @@ class Place < ActiveRecord::Base
 
   default_scope order( :name )
 
-  # https://github.com/rubyist/aasm
-  include AASM
 
-  aasm_column :state
-  aasm_initial_state :ready
-  
-  aasm_state :ready      # Площадка включена, но на ней ничего нет
-  aasm_state :paused     # Площадка временно выключена
-  aasm_state :active     # На площадке висят баннера
-  aasm_state :archive    # Площадка удалена
+  state_machine :state, :initial=>:ready 
+  # aasm_state :ready      # Площадка включена, но на ней ничего нет
+  # aasm_state :paused     # Площадка временно выключена
+  # aasm_state :active     # На площадке висят баннера
+  # aasm_state :archive    # Площадка удалена
 
   # Можно геометрию задавать просто текстом: 200x200
   def geometry=(geometry)

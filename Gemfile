@@ -33,7 +33,6 @@ gem 'paperclip'
 #   gem 'webrat'
 # end
 
-gem "aasm"
 gem "state_machine"
 gem "haml-rails"
 gem "formtastic"

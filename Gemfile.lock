@@ -34,7 +34,6 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    aasm (2.2.0)
     abstract (1.0.0)
     actionmailer (3.0.3)
       actionpack (= 3.0.3)
@@ -181,7 +180,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aasm
   compass
   devise!
   factory_girl_generator
