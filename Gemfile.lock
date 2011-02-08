@@ -65,6 +65,7 @@ GEM
     arel (2.0.7)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cancan (1.5.1)
     columnize (0.3.2)
     compass (0.10.6)
       haml (>= 3.0.4)
@@ -87,6 +88,9 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     has_scope (0.5.0)
+    hoptoad_notifier (2.4.5)
+      activesupport
+      builder
     hpricot (0.8.3)
     i18n (0.5.0)
     inherited_resources (1.2.1)
@@ -103,6 +107,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     nifty-generators (0.4.4)
+    oa-core (0.1.6)
+      rack (~> 1.1)
     open4 (0.9.6)
     orm_adapter (0.0.4)
     paperclip (2.3.8)
@@ -184,6 +190,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  cancan
   compass
   devise!
   factory_girl_generator
@@ -191,10 +198,12 @@ DEPENDENCIES
   formtastic
   formtastic_datepicker_inputs!
   haml-rails
+  hoptoad_notifier
   hpricot
   inherited_resources (~> 1.2.1)
   jquery-rails (>= 0.2.6)
   nifty-generators
+  oa-core
   paperclip
   pg
   rails (= 3.0.3)

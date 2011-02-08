@@ -44,9 +44,14 @@ gem "responders"
 
 gem "annotate"
 
+gem "cancan"
+
 gem "jquery-rails", ">= 0.2.6"
 # gem "best_in_place", :git => "https://github.com/bernat/best_in_place.git"
+gem "oa-core"
 gem "devise", :git => "git://github.com/plataformatec/devise.git", :branch => "omniauth"
+gem 'hoptoad_notifier'
+
 gem "compass"
 gem "stateful_link", :git => "git://github.com/dapi/stateful_link.git"
 gem "russian", :git => "https://github.com/dima4p/russian.git"
