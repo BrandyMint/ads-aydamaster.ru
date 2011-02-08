@@ -1,4 +1,4 @@
-class Geometry < ActiveRecord::Base
+class Format < ActiveRecord::Base
   has_many :places
   has_many :banners
 
@@ -7,6 +7,10 @@ class Geometry < ActiveRecord::Base
   # validates_uniqueness_of :name
 
   def to_s
+    "#{geometry} #{name}"
+  end
+
+  def geometry
     "#{width}x#{height}"
   end
   

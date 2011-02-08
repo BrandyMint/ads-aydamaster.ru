@@ -1,4 +1,4 @@
-%h1 Listing geometries
+%h1 Listing formats
 
 %table
   %tr
@@ -8,14 +8,14 @@
     %th
     %th
 
-  - @geometries.each do |geometry|
+  - @formats.each do |format|
     %tr
-      %td= geometry.width
-      %td= geometry.height
-      %td= link_to 'Show', geometry
-      %td= link_to 'Edit', edit_geometry_path(geometry)
-      %td= link_to 'Destroy', geometry, :confirm => 'Are you sure?', :method => :delete
+      %td= format.width
+      %td= format.height
+      %td= link_to 'Show', format
+      %td= link_to 'Edit', edit_format_path(format)
+      %td= link_to 'Destroy', format, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Ad style', new_geometry_path
+= link_to 'New Ad style', new_format_path

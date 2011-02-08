@@ -61,6 +61,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    annotate (2.4.0)
     arel (2.0.7)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -180,6 +181,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   compass
   devise!
   factory_girl_generator

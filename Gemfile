@@ -42,6 +42,8 @@ gem "simple_form"
 gem 'inherited_resources', '~> 1.2.1'
 gem "responders"
 
+gem "annotate"
+
 gem "jquery-rails", ">= 0.2.6"
 # gem "best_in_place", :git => "https://github.com/bernat/best_in_place.git"
 gem "devise", :git => "git://github.com/plataformatec/devise.git", :branch => "omniauth"

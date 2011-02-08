@@ -4,7 +4,7 @@
   - f.inputs do
     -# = f.input :place, :input_html => { :disabled => true }
     = f.input :place, :collection => current_user.places
-    -# - banners = @campaign.place.geometry.banners.ready
+    -# - banners = @campaign.place.format.banners.ready
     - banners = current_user.banners
     = f.input :banner, :collection => banners, :hint => "Баннеров доступно: #{banners.count}"
     = f.input :start_date, :as => :date_picker

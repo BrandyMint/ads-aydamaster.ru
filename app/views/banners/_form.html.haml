@@ -1,8 +1,9 @@
 = simple_form_for @banner, :html => { :multipart => true } do |f|
   -# = f.semantic_errors
   = f.error_messages
-  .fieldset
+  %fieldset
     = f.input :banner, :as => :file
     = f.input :link, :as => :url
     = f.input :name
-    = f.submit
+  .actions
+    %button.cupid-green Готово

@@ -1,9 +1,9 @@
-= form_for @geometry do |f|
-  -if @geometry.errors.any?
+= form_for @format do |f|
+  -if @format.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@geometry.errors.count, "error")} prohibited this geometry from being saved:"
+      %h2= "#{pluralize(@format.errors.count, "error")} prohibited this format from being saved:"
       %ul
-        - @geometry.errors.full_messages.each do |msg|
+        - @format.errors.full_messages.each do |msg|
           %li= msg
 
   .field

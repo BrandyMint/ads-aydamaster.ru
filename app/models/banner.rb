@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 class Banner < ActiveRecord::Base
   belongs_to :user
-  belongs_to :geometry
+  belongs_to :format
 
   has_many :campaigns
 
   scope :ready, where(:state=>:ready)
 
-  validates_presence_of :user, :link #, :banner_file_name
+  validates_presence_of :user, :banner #, :link #, :banner_file_name
 
   has_attached_file :banner, :styles => { :thumb => ["120x60>", :png] }
   validates_attachment_presence :banner
   validates_attachment_size :banner, :less_than => 500.kilobytes
 
-  # TODO add flash
+  # TODO add flash application/x-shockwave-flash
   validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png', 'image/gif']
 
 
@@ -24,15 +24,15 @@ class Banner < ActiveRecord::Base
   # aasm_state :archive        # Удален, в архиве
 
 
-  before_save :set_geometry
+  before_save :set_format
   before_save :set_name
 
   # TODO Валидацию на размеры баннеры и формата места
   
-  def set_geometry
-    g = Paperclip::Geometry.from_file( banner.to_file )
+  def set_format
+    g = Paperclip::format.from_file( banner.to_file )
     self.width, self.height = g.width, g.height
-    self.geometry = Geometry.find_or_create_by_width_and_height( g.width, g.height )
+    self.format = format.find_or_create_by_width_and_height( g.width, g.height )
   end
 
   def set_name
@@ -40,7 +40,7 @@ class Banner < ActiveRecord::Base
   end
 
   def to_s
-    "#{name} #{geometry}"
+    "#{name} #{format}"
   end
   
   alias_method :to_label, :to_s

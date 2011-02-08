@@ -1,10 +1,14 @@
 ru:
+  attributes:
+    banner: Рекламный баннер
+    link: Ссылка для клика
+    name: Название
   flash:
     actions:
       create:
-        notice: "%{resource_name} was successfully created."
+        notice: "%{resource_name} создан."
       update:
-        notice: "%{resource_name} was successfully updated."
+        notice: "%{resource_name} обновлен."
       destroy:
-        notice: "%{resource_name} was successfully destroyed."
-        alert: "%{resource_name} could not be destroyed."
+        notice: "%{resource_name} удален."
+        alert: "%{resource_name} не может быть удален."

@@ -2,11 +2,11 @@
 
 %p
   %b Width:
-  = @geometry.width
+  = @format.width
 %p
   %b Height:
-  = @geometry.height
+  = @format.height
 
-= link_to 'Edit', edit_geometry_path(@geometry)
+= link_to 'Edit', edit_format_path(@format)
 \|
-= link_to 'Back', geometries_path
+= link_to 'Back', formats_path

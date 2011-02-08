@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-require 'geometry'
+require 'format'
 
 class Place < ActiveRecord::Base
 
   belongs_to :website, :dependent => :destroy
-  belongs_to :geometry, :dependent => :destroy
+  belongs_to :format, :dependent => :destroy
 
   has_many :campaigns
 
-  validates_presence_of :geometry, :website_id, :name
-  validates_uniqueness_of :name, :scope=>:website_id
+  validates_presence_of :format
+  validates_uniqueness_of :name, :scope=>:website_id, :allow_nil=>true, :allow_blank=>true
 
   default_scope order( :name )
 
@@ -22,13 +22,12 @@ class Place < ActiveRecord::Base
 
   # Можно геометрию задавать просто текстом: 200x200
   def geometry=(geometry)
-    geometry = Geometry.find_by_width_and_height( *geometry.split('x') ) ||
-      fail( "No such style: #{geometry}" ) if geometry.is_a? String
-    self.geometry_id = geometry.present? ? geometry.id : nil
+    self.format = Format.find_by_width_and_height( *geometry.split('x') ) ||
+      fail( "No such style: #{format}" )
   end
 
   def to_s
-    "#{name} #{geometry}"
+    "#{name} #{format}"
   end
 
   alias_method :to_label, :to_s
