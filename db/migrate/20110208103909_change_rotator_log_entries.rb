@@ -4,7 +4,7 @@ class ChangeRotatorLogEntries < ActiveRecord::Migration
     remove_column :rotator_log_entries, :referrer
     remove_column :rotator_log_entries, :place_id
     remove_column :rotator_log_entries, :banner_id
-    add_column :rotator_log_entries, :env_dump, :text
+    add_column :rotator_log_entries, :request_dump, :text
   end
 
   def self.down
@@ -12,6 +12,6 @@ class ChangeRotatorLogEntries < ActiveRecord::Migration
     add_column :rotator_log_entries, :referrer, :string
     add_column :rotator_log_entries, :place_id, :integer
     add_column :rotator_log_entries, :banner_id, :integer
-    remove_column :rotator_log_entries, :env_dump
+    remove_column :rotator_log_entries, :request_dump
   end
 end
