@@ -1,8 +1,8 @@
 = semantic_form_for @place do |f|
-  = f.input :website_id, :as => :hidden, :value => @website
+  -# = f.input :website_id, :as => :hidden, :value => @website
   = f.error_messages
   - f.inputs do
     = f.input :format, :as => :select, :collection => Format.all
     = f.input :name
-    = f.input :website # , :as => :string, :input_html2 => { :disabled => true } 
+    -# = f.input :website # , :as => :string, :input_html2 => { :disabled => true } 
   = f.submit

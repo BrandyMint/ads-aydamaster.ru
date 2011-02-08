@@ -56,6 +56,7 @@ group :test, :development do
   gem "rcov"
   gem "rspec"
   gem "rspec-rails"
+  gem "steak"
   gem "shoulda"
   gem "factory_girl_rails"
   gem "factory_girl_generator"

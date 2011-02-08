@@ -30,9 +30,9 @@ class Banner < ActiveRecord::Base
   # TODO Валидацию на размеры баннеры и формата места
   
   def set_format
-    g = Paperclip::format.from_file( banner.to_file )
+    g = Paperclip::Geometry.from_file( banner.to_file )
     self.width, self.height = g.width, g.height
-    self.format = format.find_or_create_by_width_and_height( g.width, g.height )
+    self.format = Format.find_or_create_by_width_and_height( g.width, g.height )
   end
 
   def set_name
