@@ -32,4 +32,8 @@ class Place < ActiveRecord::Base
 
   alias_method :to_label, :to_s
 
+  def uid
+    id
+  end
+
 end
