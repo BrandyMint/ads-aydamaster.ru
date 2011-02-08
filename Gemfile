@@ -41,6 +41,7 @@ gem "simple_form"
 
 gem 'inherited_resources', '~> 1.2.1'
 gem "responders"
+gem "img_gravatar"
 
 gem "annotate"
 

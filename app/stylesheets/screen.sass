@@ -1,11 +1,33 @@
 // This import applies a global reset to any page that imports this stylesheet.
 //@import blueprint/reset
 
-$form-bg = #eee
+$form-bg: #eee
+$primary_color: #4b7399
+$link_color: $primary_color
 
-@import nifty
+// Цвет фона
+$bg_color: $link_color
+
+$darken_color: darken($primary_color, 20)
+
+// Цвет ссылок на синем фоне
+$lighten_color: lighten($primary_color, 40)
+
+$border_color: darken($primary_color, 10)
+
+// Цвет заголовков
+$h_color: darken($primary_color, 10)
+$red_color: red
+
+
+=underline_hover
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+
 @import "compass/css3/border-radius"
-// @import "compass/css3/gradient"
+@import "compass/css3/gradient"
 @import "compass/css3/box-shadow"
 @import "compass/css3/text-shadow"
 @import "compass/utilities/lists/horizontal-list"
@@ -13,31 +35,34 @@ $form-bg = #eee
 
 @import partials/datepicker
 
+@import success-sasses/mixins/gradient-bg
+@import success-sasses/buttons/all
+@import success-sasses/mixins/sass_tools
+@import success-sasses/simple_form/simple_form
+@import nifty
+@import topper
+
+
+
 // @import "compass/css3/background-clip"
-h2
-  /* +text-shadow
+h2,h1
+  color: $h_color
+  // +text-shadow
 
 a
-  +link-colors(#4b7399)
-
-#container
-  +border-radius
+  +link-colors($link_color, $darken_color)
 
 // @import blueprint
 
 //@import partials/form
 
-@import success-sasses/buttons/all
-@import success-sasses/mixins/sass_tools
-@import success-sasses/simple_form/simple_form
 // @import flutie/tables
+
 
 table
   width: auto
 
-ul#login
-  +horizontal-list
-  float: right
+
 
 ul#menu
   +horizontal-list
