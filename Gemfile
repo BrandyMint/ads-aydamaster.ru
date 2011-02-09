@@ -36,7 +36,8 @@ gem 'paperclip'
 gem "state_machine"
 gem "haml-rails"
 gem "formtastic"
-gem "formtastic_datepicker_inputs", :git => "https://github.com/demersus/formtastic_datepicker_inputs.git"
+# gem "formtastic_datepicker_inputs", :git => "https://github.com/demersus/formtastic_datepicker_inputs.git"
+gem "formtastic_jquery_ui"
 gem "simple_form"
 
 gem 'inherited_resources', '~> 1.2.1'

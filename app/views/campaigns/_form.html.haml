@@ -7,6 +7,6 @@
     -# - banners = @campaign.place.format.banners.ready
     - banners = current_user.banners
     = f.input :banner, :collection => banners, :hint => "Баннеров доступно: #{banners.count}"
-    = f.input :start_date, :as => :date_picker
-    = f.input :stop_date, :as => :date_picker
+    = f.input :start_date, :as => :datepicker
+    = f.input :stop_date, :as => :datepicker
   = f.submit

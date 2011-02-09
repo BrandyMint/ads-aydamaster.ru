@@ -3,6 +3,9 @@ ru:
     banner: Рекламный баннер
     link: Ссылка для клика
     name: Название
+    place: Площадка
+    start_date: Дата начала
+    stop_date: Дата окончания
   flash:
     actions:
       create:
