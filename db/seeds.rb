@@ -29,7 +29,7 @@
 200-200].each do |s|
   s.gsub!('_',' ')
   a=s.split('-')
-  Geometry.create!({
+  Format.create!({
                     :width => a[0],
                     :height => a[1],
                     :name => a[2]
