@@ -57,6 +57,8 @@ gem "compass"
 gem "stateful_link", :git => "git://github.com/dapi/stateful_link.git"
 gem "russian", :git => "https://github.com/dima4p/russian.git"
 
+gem "loop_dance"
+
 group :test, :development do 
   gem "ruby-debug"
   gem "rcov"
