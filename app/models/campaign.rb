@@ -13,7 +13,6 @@ class Campaign < ActiveRecord::Base
 
   def self.new(attributes = nil)
     attributes[:start_date] = Date.today
-    attributes[:last_viewed_at] = Time.now
     super attributes
   end
 
