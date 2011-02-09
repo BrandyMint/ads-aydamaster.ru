@@ -4,6 +4,11 @@
 
 %p= "Типоразмер: #{@place.format}"
 
+%p
+  %b State:
+  = @place.state
 
+%p
+  = state_actions(@place)
 
 = link_to '&larr; список площадок'.html_safe, websites_path
