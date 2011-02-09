@@ -1,9 +1,13 @@
-%ul#login
-  - if user_signed_in?
-    %li= img_gravatar( current_user.email, :size => 18 ).html_safe
-    %li= "( #{current_user.name || current_user.email} )"
-    %li= link_to "профиль", edit_user_registration_path
-    %li &middot;
-    %li= link_to 'выйти', destroy_user_session_path
-  - elsif controller_name != 'sessions'
-    %li= link_to "Вход..", new_user_session_path
+- if user_signed_in?
+  #login
+    #avatar
+      = img_gravatar( current_user.email, :size => 36 ).html_safe
+    #login_menu
+      %ul.email
+        %li= "#{current_user.name || current_user.email}"
+      %ul
+        %li= link_to "профиль", edit_user_registration_path
+        %li &middot;
+        %li= link_to 'выйти', destroy_user_session_path
+- elsif controller_name != 'sessions'
+  %li= link_to "Вход..", new_user_session_path

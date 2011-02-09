@@ -23,18 +23,22 @@
   a
     +link-colors($lighten_color, white)
     +underline_hover
-
-  ul#login
-    position: absolute
-    bottom: 25px
-    right: 20px
+#login
+  position: absolute
+  bottom: 25px
+  right: 20px
+  #avatar
+    float: left
+  #login_menu
+    padding-left: 10px
+    float: left
+  ul
     color: $lighten_color
     +horizontal-list
-    li
-      img
-        vertical-align: middle
-      height: 20px
-      line-height: 20px
+    &.email
+      padding-bottom: 5px
+      color: $lite_color
+
     
       
 
