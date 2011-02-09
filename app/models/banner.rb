@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class Banner < ActiveRecord::Base
+  extend HasStates
+
   belongs_to :user
   belongs_to :format
 
@@ -16,19 +18,13 @@ class Banner < ActiveRecord::Base
   # TODO add flash application/x-shockwave-flash
   validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png', 'image/gif']
 
-
-  state_machine :state, :initial=>:ready
-  # aasm_state :active         # Используется в кампания
-  # aasm_state :ready          # Готов к использованию, не используется
-  # aasm_state :paused         # Времено отключен
-  # aasm_state :archive        # Удален, в архиве
-
+  has_states
 
   before_save :set_format
   before_save :set_name
 
   # TODO Валидацию на размеры баннеры и формата места
-  
+
   def set_format
     g = Paperclip::Geometry.from_file( banner.to_file )
     self.width, self.height = g.width, g.height
@@ -42,7 +38,6 @@ class Banner < ActiveRecord::Base
   def to_s
     "#{name} #{format}"
   end
-  
-  alias_method :to_label, :to_s
 
+  alias_method :to_label, :to_s
 end

@@ -23,6 +23,9 @@
 %p
   = image_tag @banner.banner.url
 
+%p
+  = state_actions(@banner)
+
 = link_to 'Edit', edit_banner_path(@banner)
 \|
 = link_to 'Back', banners_path
