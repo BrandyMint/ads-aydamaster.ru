@@ -17,11 +17,19 @@ Aydamaster::Application.routes.draw do
     end
   end
 
-  resources :geometries
-  resources :places
+  resources :places do
+    member do
+      put 'activate'
+      put 'pause'
+      put 'archive'
+    end
+  end
+
   resources :websites do
     resources :places
   end
+
+  resources :geometries
 
   devise_for :users
 
