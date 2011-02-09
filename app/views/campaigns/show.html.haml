@@ -14,6 +14,9 @@
   %b Stop at:
   = @campaign.stop_date
 
+%p
+  = state_actions(@campaign)
+
 = link_to 'Edit', edit_campaign_path(@campaign)
 \|
 = link_to 'Back', campaigns_path

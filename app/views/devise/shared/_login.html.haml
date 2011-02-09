@@ -1,7 +1,7 @@
 - if user_signed_in?
   #login
-    #avatar
-      = img_gravatar( current_user.email, :size => 36 ).html_safe
+    .avatar.left
+      = img_gravatar( current_user.email, :size => 38 ).html_safe
     #login_menu
       %ul.email
         %li= "#{current_user.name || current_user.email}"
@@ -10,4 +10,6 @@
         %li &middot;
         %li= link_to 'выйти', destroy_user_session_path
 - elsif controller_name != 'sessions'
-  %li= link_to "Вход..", new_user_session_path
+  #login
+    %ul
+      %li= link_to "Вход..", new_user_session_path

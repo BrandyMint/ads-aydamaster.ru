@@ -1,13 +1,35 @@
 Aydamaster::Application.routes.draw do
 
 
-  resources :campaigns
-  resources :banners
-  resources :geometries
-  resources :places
+  resources :campaigns do
+    member do
+      put 'activate'
+      put 'pause'
+      put 'archive'
+    end
+  end
+
+  resources :banners do
+    member do
+      put 'activate'
+      put 'pause'
+      put 'archive'
+    end
+  end
+
+  resources :places do
+    member do
+      put 'activate'
+      put 'pause'
+      put 'archive'
+    end
+  end
+
   resources :websites do
     resources :places
   end
+
+  resources :geometries
 
   devise_for :users
 

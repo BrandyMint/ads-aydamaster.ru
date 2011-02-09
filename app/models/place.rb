@@ -2,6 +2,7 @@
 require 'format'
 
 class Place < ActiveRecord::Base
+  extend HasStates
 
   belongs_to :website, :dependent => :destroy
   belongs_to :format, :dependent => :destroy
@@ -13,12 +14,7 @@ class Place < ActiveRecord::Base
 
   default_scope order( :name )
 
-
-  state_machine :state, :initial=>:ready 
-  # aasm_state :ready      # Площадка включена, но на ней ничего нет
-  # aasm_state :paused     # Площадка временно выключена
-  # aasm_state :active     # На площадке висят баннера
-  # aasm_state :archive    # Площадка удалена
+  has_states
 
   # Можно геометрию задавать просто текстом: 200x200
   def geometry=(geometry)
