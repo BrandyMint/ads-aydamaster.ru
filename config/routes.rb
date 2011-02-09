@@ -1,7 +1,14 @@
 Aydamaster::Application.routes.draw do
 
 
-  resources :campaigns
+  resources :campaigns do
+    member do
+      put 'activate'
+      put 'pause'
+      put 'archive'
+    end
+  end
+
   resources :banners do
     member do
       put 'activate'
@@ -9,6 +16,7 @@ Aydamaster::Application.routes.draw do
       put 'archive'
     end
   end
+
   resources :geometries
   resources :places
   resources :websites do
