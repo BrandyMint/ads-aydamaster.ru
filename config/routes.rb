@@ -1,7 +1,5 @@
 Aydamaster::Application.routes.draw do
-
-
-  resources :campaigns do
+  resources :campaigns, :except => :destroy do
     member do
       put 'activate'
       put 'pause'
@@ -9,7 +7,7 @@ Aydamaster::Application.routes.draw do
     end
   end
 
-  resources :banners do
+  resources :banners, :except => :destroy do
     member do
       put 'activate'
       put 'pause'
@@ -17,7 +15,7 @@ Aydamaster::Application.routes.draw do
     end
   end
 
-  resources :places do
+  resources :places, :except => :destroy do
     member do
       put 'activate'
       put 'pause'
@@ -26,8 +24,6 @@ Aydamaster::Application.routes.draw do
   end
 
   resources :websites
-  resources :places
-
   resources :formats
 
   devise_for :users
