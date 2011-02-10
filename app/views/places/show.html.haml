@@ -11,4 +11,6 @@
 %p
   = state_actions(@place)
 
+= render :partial => "shared/activity_log", :locals => {:activities => @place.activity_log_entries}
+
 = link_to '&larr; список площадок'.html_safe, websites_path

@@ -29,3 +29,5 @@
 = link_to 'Edit', edit_banner_path(@banner)
 \|
 = link_to 'Back', banners_path
+
+= render :partial => "shared/activity_log", :locals => {:activities => @banner.activity_log_entries}

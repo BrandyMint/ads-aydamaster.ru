@@ -1,0 +1,6 @@
+%p
+  %b Activity Log
+  - activities.reverse.each do |activity|
+    %p
+      -# TODO: заменить кто-то на имя пользователя
+      = "(#{activity.created_at.strftime("%H:%M %d %b, %Y")}) Кто-то выполнил действие #{activity.action}."

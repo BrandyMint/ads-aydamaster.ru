@@ -17,6 +17,8 @@
 %p
   = state_actions(@campaign)
 
+= render :partial => "shared/activity_log", :locals => {:activities => @campaign.activity_log_entries}
+
 = link_to 'Edit', edit_campaign_path(@campaign)
 \|
 = link_to 'Back', campaigns_path
