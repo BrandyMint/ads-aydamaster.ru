@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe "AdStyles" do
-  describe "GET /ad_styles" do
+describe "Banners" do
+  describe "GET /banners" do
     it "works! (now write some real specs)" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get ad_styles_path
+      get banners_path
       response.status.should be(200)
     end
   end

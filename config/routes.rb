@@ -25,11 +25,10 @@ Aydamaster::Application.routes.draw do
     end
   end
 
-  resources :websites do
-    resources :places
-  end
+  resources :websites
+  resources :places
 
-  resources :geometries
+  resources :formats
 
   devise_for :users
 

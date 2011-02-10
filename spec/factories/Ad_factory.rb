@@ -5,7 +5,7 @@ Factory.define :ad do |f|
   f.name "MyString"
   f.width 1
   f.height 1
-  f.ad_style_id 1
+  f.format_id 1
   f.state "MyString"
   f.link "MyString"
 end
