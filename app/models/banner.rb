@@ -6,6 +6,7 @@ class Banner < ActiveRecord::Base
   belongs_to :format
 
   has_many :campaigns
+  has_many :activity_log_entries, :as => :subject
 
   scope :ready, where(:state=>:ready)
 

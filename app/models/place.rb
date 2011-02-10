@@ -8,6 +8,7 @@ class Place < ActiveRecord::Base
   belongs_to :format, :dependent => :destroy
 
   has_many :campaigns
+  has_many :activity_log_entries, :as => :subject
 
   validates_presence_of :format
   validates_uniqueness_of :name, :scope=>:website_id, :allow_nil=>true, :allow_blank=>true

@@ -6,6 +6,8 @@ class Campaign < ActiveRecord::Base
   belongs_to :banner
   belongs_to :user
 
+  has_many :activity_log_entries, :as => :subject
+
   validates_presence_of :place, :banner, :start_date, :user
 
   has_states
