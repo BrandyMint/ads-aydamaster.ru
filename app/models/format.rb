@@ -17,3 +17,16 @@ class Format < ActiveRecord::Base
   alias_method :to_label, :to_s
 
 end
+
+# == Schema Information
+#
+# Table name: formats
+#
+#  id         :integer         not null, primary key
+#  width      :integer         not null
+#  height     :integer         not null
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

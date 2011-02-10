@@ -1,4 +1,16 @@
 ru:
+  states:
+    status:
+      ready: готов
+      archive: удален
+      activate: действует
+      active: действует
+      pause: на паузе
+    action:
+      ready: готовность
+      archive: удалить
+      activate: включить
+      pause: на паузу
   attributes:
     banner: Рекламный баннер
     link: Ссылка для клика

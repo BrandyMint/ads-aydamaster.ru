@@ -2,7 +2,7 @@
   %tr
     %th Позиция
     %th Статус
-    %th
+    %th Баннера
   - places.each do |place|
     %tr
       %td
@@ -12,6 +12,10 @@
       %td= place.state
       %td
         = link_to "Разместить баннер", new_campaign_path( :campaign => { :place_id=>place  })
+        - if place.banners.present?
+          (
+          = link_to banners_in_words( place.banners ), place
+          )
   %tr
     %td
       = link_to '[+] Добавить площадку', new_place_path()

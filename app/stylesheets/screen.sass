@@ -37,9 +37,9 @@ $red_color: red
 @import partials/datepicker
 
 @import success-sasses/mixins/gradient-bg
-@import success-sasses/buttons/all
+// @import success-sasses/buttons/all
 @import success-sasses/mixins/sass_tools
-@import success-sasses/simple_form/simple_form
+// @import success-sasses/simple_form/simple_form
 @import nifty
 @import topper
 
@@ -63,7 +63,14 @@ a
 table
   width: auto
 
-
+.aydabanner_code
+  // width: auto
+  overflow: auto
+  padding: 15px 15px
+  background-color: #eee
+  border: 1px solid #ccc
+  /* color: #600
+  +border-radius(5px)
 
 ul#menu
   +horizontal-list
@@ -84,3 +91,79 @@ ul#menu
   padding: 3px
   background-color: white
   // border: 1px solid $darken_color
+
+.activity_log
+  ul.activity_log_list
+    list-style-image: none
+    list-style-type: none
+    padding-left: 0
+    li 
+      span
+        color: gray
+
+
+.column_left
+  width: 45%
+  float: left
+.column_right
+  width: 45%
+  float: right
+
+/*  * html #links li a {  /* make hover effect work in IE */
+/* 	width: 400px;
+/* }
+
+.campaigns
+  ol
+    margin: 0
+    padding: 0 0 20px 0
+    list-style-type: none
+    list-style-image:none
+    width: 450px
+    li
+      background-color: #eee
+      padding: 15px
+
+  a.campaign_link
+    width: 220px
+    height: 40px
+    padding: 10px
+    float: left
+    display: block
+    text-decoration: none
+    &:hover
+      background-color: #fff
+    .campaign_image
+      float: left
+      width: 120px
+    .campaign_info
+      float: left
+      width: 100px
+      em
+        color: #333
+        display: block
+        font: normal 85% Verdana, Helvetica, sans-serif
+        line-height: 125%
+      span 
+        color: #125F15
+        font: normal 70% Verdana, Helvetica, sans-serif
+        line-height: 150%
+  .campaign_state
+    float: left
+    padding: 10px
+    width: 120px
+
+.state_buttons
+  a.state_link
+    text-decoration: none
+  // button.state_button
+    // +button-minimal
+  button.state_button
+    font-size: 9px
+    padding: 0
+    // &[disabled]
+    &.active
+      color: white
+      font-weight: bold
+      // background-color: black
+      // 2px 2px

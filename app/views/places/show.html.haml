@@ -1,16 +1,34 @@
-
-
-%h2= "Площадка &#8470;#{@place.uid} '#{@website}/#{@place.name}'".html_safe
-
-%p= "Типоразмер: #{@place.format}"
-
-%p
-  %b State:
-  = @place.state
-
-%p
+%h1
+  = "Площадка &#8470;#{@place.uid} &laquo;#{@website}/#{@place.name}&raquo;".html_safe
   = state_actions(@place)
 
-= render :partial => "shared/activity_log", :locals => {:activities => @place.activity_log_entries}
+.column_left
+  %p
+    %b Типоразмер: 
+    #{@place.format}
+
+  %h2
+    Код для вставки
+  %p Вставьте этот код в html-страницу сайта, на место отображения баннера:
+  %p
+    -# %textarea(rows=1 cols=120 class="aydabanner_code" readonly)
+    %pre.aydabanner_code
+      %code.language-js
+        = generate_place_code @place
+
+.column_right
+  %h2 Рекламные кампании
+  = render 'campaigns/campaigns', :campaigns => @place.campaigns
+
+.clear
+
+= render "shared/activity_log", :activities => @place.activity_log_entries
 
 = link_to '&larr; список площадок'.html_safe, websites_path
+
+
+%br
+%br
+%br
+
+= link_to 'asdasd', new_campaign_path, :class=>'test_link'

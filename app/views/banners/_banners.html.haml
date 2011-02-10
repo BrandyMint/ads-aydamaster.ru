@@ -1,0 +1,20 @@
+.banners
+  %table
+    %tr
+      %th
+      %th
+      %th
+
+    - banners.each do |banner|
+      %tr
+        %td.banner_image
+          = link_to image_tag( banner.banner.url(:mini) ), banner
+        %td.banner_info
+          = link_to banner do
+            .1_line= banner.name
+            .format= banner.format
+        %td= banner.state
+
+%br
+
+= link_to 'New Banner', new_banner_path

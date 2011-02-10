@@ -1,0 +1,16 @@
+.campaigns
+  %ol
+    - campaigns.each do |campaign|
+      %li
+        = link_to campaign, :class=>'campaign_link' do 
+          .campaign_image
+            = image_tag( campaign.banner.banner.url(:mini) )
+          .campaign_info
+            %em= campaign.banner.name
+            %span= campaign.banner.format
+        .campaign_state
+          = state_actions(campaign)
+        .clear
+
+  = link_to 'New Campaign', new_campaign_path
+

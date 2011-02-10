@@ -9,6 +9,7 @@ class Place < ActiveRecord::Base
 
   has_many :campaigns
   has_many :activity_log_entries, :as => :subject
+  has_many :banners, :through => :campaigns
 
   validates_presence_of :format
   validates_uniqueness_of :name, :scope=>:website_id, :allow_nil=>true, :allow_blank=>true
@@ -24,7 +25,8 @@ class Place < ActiveRecord::Base
   end
 
   def to_s
-    "#{name} #{format}"
+    name
+    #"#{name} #{format}"
   end
 
   alias_method :to_label, :to_s
@@ -34,3 +36,18 @@ class Place < ActiveRecord::Base
   end
 
 end
+
+# == Schema Information
+#
+# Table name: places
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  website_id :integer
+#  format_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  state      :string(255)     not null
+#  domains    :text
+#
+

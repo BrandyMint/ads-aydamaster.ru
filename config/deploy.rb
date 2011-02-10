@@ -58,9 +58,15 @@ namespace :vlad do
   desc "Share config files (database.yml and settings"
   remote_task :share_configs do
     puts "Share config files"
-    run "cd #{current_release}/config/; scp #{local_link}/config/database.yml . ; scp -r #{local_link}/config/settings* ."
+    run "cd #{current_release}/config/; scp #{local_link}/config/database.yml ." #  ; scp -r #{local_link}/config/settings* .
   end
 
+  #
+  # Hoptoad integration
+  #
+  # rake hoptoad:deploy TO=#{rails_env} REVISION=#{current_revision} REPO=#{repository} USER=#{local_user}
+  # rake hoptoad:deploy TO=$RAILS_ENV REVISION=`git rev-parse HEAD` USER=`whoami` REPO=`git remote -v show | cut -f 2`
+  
   desc "Exec bundle --deployment"
   remote_task :bundle do
     puts "Exec bundle"

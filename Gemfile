@@ -1,3 +1,4 @@
+# -*- coding: undecided -*-
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
@@ -39,6 +40,15 @@ gem "formtastic"
 # gem "formtastic_datepicker_inputs", :git => "https://github.com/demersus/formtastic_datepicker_inputs.git"
 gem "formtastic_jquery_ui"
 gem "simple_form"
+
+# Alternatives
+# https://github.com/2performant/swiff
+# https://github.com/toy/image_size - clear ruby -  не работает
+# https://github.com/DBA/swf_file/
+# https://github.com/duncanbeevers/swf_recompress
+# swftool based
+# use ffmpeg to thumnail http://stackoverflow.com/questions/1208204/net-how-to-create-thumbnail-from-flash
+gem 'ruby-imagespec', :require=> 'image_spec'
 
 gem 'inherited_resources', '~> 1.2.1'
 gem "responders"

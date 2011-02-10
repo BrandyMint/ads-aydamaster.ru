@@ -1,26 +1,5 @@
-%h1 Listing banners
+%h1 Список баннеров
 
-%table
-  %tr
-    %th User
-    %th Name
-    %th State
-    %th Link
-    %th
-    %th
-    %th
-
-  - @banners.each do |banner|
-    %tr
-      %td= image_tag banner.banner.url(:thumb)
-      %td
-        = banner.name
-        .desc= "(#{banner.format})"
-      %td= link_to banner.link
-      %td= banner.state
-      %td= link_to 'Show', banner
-      %td= link_to 'Edit', "edit_banner_path(banner)"
-
-%br
+= render 'banners/banners', :banners=>@banners
 
 = link_to 'New Banner', new_banner_path
