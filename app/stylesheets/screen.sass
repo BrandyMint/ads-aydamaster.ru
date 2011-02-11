@@ -1,6 +1,8 @@
 // This import applies a global reset to any page that imports this stylesheet.
 //@import blueprint/reset
 
+$page_width: 950px
+
 $form-bg: #eee
 $primary_color: #4b7399
 $link_color: $primary_color
@@ -44,7 +46,6 @@ $red_color: red
 @import topper
 
 
-
 // @import "compass/css3/background-clip"
 h2,h1
   color: $h_color
@@ -62,6 +63,11 @@ a
 
 table
   width: auto
+  th
+    text-align: left
+  td
+    padding-top: 5px
+    padding-right: 10px
 
 .aydabanner_code
   // width: auto
@@ -72,8 +78,6 @@ table
   /* color: #600
   +border-radius(5px)
 
-ul#menu
-  +horizontal-list
 
 .desc
   display: inline

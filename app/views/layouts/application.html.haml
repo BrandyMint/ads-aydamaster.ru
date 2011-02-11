@@ -23,16 +23,10 @@
     = csrf_meta_tag
   %body
     #topper
-      %h1#logo
-        = link_to 'Ай да мастер!', root_path
-        #slogan= "реклама на сайте в два <s>счета</s> щелчка".html_safe
-      
-      = render 'devise/shared/login'
-      .clear
+      = render 'layouts/topper'
     #container
       #header
         = show_flash.html_safe
-        = render 'shared/menu'
       #content
         = yield
       #footer

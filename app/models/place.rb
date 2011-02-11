@@ -4,17 +4,18 @@ require 'format'
 class Place < ActiveRecord::Base
   extend HasStates
 
-  belongs_to :website, :dependent => :destroy
-  belongs_to :format, :dependent => :destroy
+  belongs_to :website #, :dependent => :destroy
+  belongs_to :format  #, :dependent => :destroy
+  belongs_to :user
 
   has_many :campaigns
   has_many :activity_log_entries, :as => :subject
   has_many :banners, :through => :campaigns
 
-  validates_presence_of :format
-  validates_uniqueness_of :name, :scope=>:website_id, :allow_nil=>true, :allow_blank=>true
+  validates_presence_of :format, :user
+  # validates_uniqueness_of :name, :scope=>:website_id, :allow_nil=>true, :allow_blank=>true
 
-  default_scope order( :name )
+  default_scope order( :created_at )
 
   has_states
 

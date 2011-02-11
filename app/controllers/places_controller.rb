@@ -29,9 +29,10 @@ class PlacesController < ApplicationController
 
   protected
 
-  # def begin_of_association_chain
-  #   @website = current_user.websites.find(params[:website_id])
-  # end
-
+  def begin_of_association_chain
+    #   @website = current_user.websites.find(params[:website_id])
+    current_user
+  end
+  
 
 end

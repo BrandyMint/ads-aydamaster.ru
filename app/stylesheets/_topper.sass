@@ -1,8 +1,26 @@
 #topper
-  width: 75%
+  width: $page_width
   position: relative 
   margin: 0 auto
-  padding: 20px 40px
+  padding: 10px 40px 20px 40px
+
+
+#first_row
+  position: relative 
+
+  #login
+    position: absolute
+    bottom: 0px
+    right: 0px
+    #login_menu
+      padding-left: 10px
+      float: left
+    ul
+      color: $lighten_color
+      +horizontal-list
+      &.email
+        padding-bottom: 5px
+        color: $lite_color
   h1#logo
     float: left
     font-family: georgia,serif
@@ -23,20 +41,26 @@
   a
     +link-colors($lighten_color, white)
     +underline_hover
-#login
-  position: absolute
-  bottom: 25px
-  right: 20px
-  #login_menu
-    padding-left: 10px
-    float: left
-  ul
-    color: $lighten_color
+
+
+#second_row
+  padding-top: 30px
+  position: relative
+  height: 20px
+  ul#main_menu
+    position: absolute
+    bottom: 0
+    left: -10px
     +horizontal-list
-    &.email
-      padding-bottom: 5px
-      color: $lite_color
-
-    
+    color: white
+    font-size: 18px
+    a
+      display: block
+      +link-colors($lighten_color, $primary_color)
+      padding: 5px 10px
+      // +underline_hover
+      text-decoration: none
+      &:hover
+        background-color: white
+        +border-radius(5px)
       
-

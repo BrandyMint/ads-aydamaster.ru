@@ -1,22 +1,16 @@
 %table
-  %tr
-    %th Позиция
-    %th Статус
-    %th Баннера
   - places.each do |place|
     %tr
+      %td= place.id
+      %td= link_to place, place
       %td
-        -# = in_place_editor_field :place, :name, { :object => place }, :url => set_place_name_website_place_path(website, place) 
-        = link_to place, place
-        .desc= "(#{place.format})"
-      %td= place.state
+        .desc= place.format
+      %td
+        = state_actions(place)
       %td
         = link_to "Разместить баннер", new_campaign_path( :campaign => { :place_id=>place  })
         - if place.banners.present?
           (
           = link_to banners_in_words( place.banners ), place
           )
-  %tr
-    %td
-      = link_to '[+] Добавить площадку', new_place_path()
-      -# = link_to '[+] Добавить площадку', new_website_place_path(website)
+= link_to '[+] Добавить площадку', new_place_path()

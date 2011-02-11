@@ -7,7 +7,11 @@ class Format < ActiveRecord::Base
   # validates_uniqueness_of :name
 
   def to_s
-    "#{geometry} #{name}"
+    if name?
+      "#{name} (#{geometry})"
+    else
+      geometry
+    end
   end
 
   def geometry

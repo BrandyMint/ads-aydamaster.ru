@@ -10,7 +10,8 @@
 # http://bannermaker.chaika.net.ua/formats.php
 # http://fleek.org/standartnye-razmery-bannerov/
 
-%w[728-90-ведущий_стенд
+if Format.count==0
+  %w[728-90-ведущий_стенд
 468-60-длинный_баннер
 336-280-большой_прямоугольник
 300-250-прямоугольник_средней_величины
@@ -27,20 +28,23 @@
 120-60-кнопка_2
 88-31-микро_полоса
 200-200].each do |s|
-  s.gsub!('_',' ')
-  a=s.split('-')
-  Format.create!({
-                    :width => a[0],
-                    :height => a[1],
-                    :name => a[2]
-                  })
+    s.gsub!('_',' ')
+    a=s.split('-')
+    Format.create!({
+                     :width => a[0],
+                     :height => a[1],
+                     :name => a[2]
+                   })
+  end
 end
 
 # Website.destroy_all
 
 
+BLOGGER_EMAIL = 'blogger@aydamaster.ru'
+#BLOGGER_EMAIL = 'danil@orionet.ru'
 
-user = User.find_by_email('blogger@aydamaster.ru') || User.create!(:email=>'blogger@aydamaster.ru',:password=>'test',:password_confirmation=>'test')
+user = User.find_by_email(BLOGGER_EMAIL) || User.create!(:email=>BLOGGER_EMAIL,:password=>'test',:password_confirmation=>'test')
 z = user.websites.find_by_domain('zhazhda.ru') || user.websites.create!( :domain=>'zhazhda.ru' )
 
 [{ :name=>'right01',
@@ -54,13 +58,15 @@ z = user.websites.find_by_domain('zhazhda.ru') || user.websites.create!( :domain
  { :name=>'middle',
    :geometry=>'468x60' }
 ].each do |g|
+  g[:user] = user
   z.places.create! g
 end
 
 (1..9).each do |i|
   z.places.create!(
-    :name=>"left0#{i}",
-    :geometry=>'120x90'
-    )
+                   :user => user,
+                   :name=>"left0#{i}",
+                   :geometry=>'120x90'
+                   )
 end
 
