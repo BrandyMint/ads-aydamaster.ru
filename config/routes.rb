@@ -26,11 +26,15 @@ Aydamaster::Application.routes.draw do
   resources :websites
   resources :formats
 
-  devise_for :users
+  devise_for :users, :controllers => {
+    #:registrations => "registrations22",
+    # :passwords => "passwords",
+    :sessions => "sessions",
+    # :omniauth_callbacks => "users/omniauth_callbacks"
+  }
+
 
   root :to => "welcome#index"
-
-  get "welcome/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

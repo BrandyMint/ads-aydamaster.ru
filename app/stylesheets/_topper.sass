@@ -56,11 +56,23 @@
     font-size: 18px
     a
       display: block
-      +link-colors($lighten_color, $primary_color)
+      color: $lighten_color
       padding: 5px 10px
       // +underline_hover
       text-decoration: none
       &:hover
+        text-decoration: underline
+    li
+      &.active
         background-color: white
         +border-radius(5px)
+        a
+          color: $primary_color
+
+      &.choosen
+        a
+          color: $primary_color
+        background-color: white
+        +border-radius(5px)
+        
       

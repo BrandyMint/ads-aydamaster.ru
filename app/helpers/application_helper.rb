@@ -33,4 +33,24 @@ module ApplicationHelper
     end
   end
 
+  def navigation_link( label, url, active, chosen=nil)
+    chosen ||= active
+    stateful_link_to(
+      active,
+      chosen,
+      :active => proc { content_tag :li, :class=>'active' do
+          link_to( label, url )
+          # concat content_tag :span, label
+        end },
+      :chosen => proc { content_tag :li, :class=>'chosen' do
+          link_to( label, url )
+        end },
+      :inactive => proc { content_tag :li do
+          link_to( label, url )
+        end }
+      )
+    
+  end
+
+
 end

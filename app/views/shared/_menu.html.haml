@@ -1,4 +1,4 @@
 %ul#main_menu
-  %li= link_to 'Площадки', places_path
-  %li= link_to 'Рекламные кампании', campaigns_path
-  %li= link_to 'Баннера', banners_path
+  = navigation_link( 'Площадки', places_path, ['places#index'] )
+  = navigation_link( 'Кампании', campaigns_path, ['campaigns#index'] )
+  = navigation_link( 'Баннера', banners_path, ['banners#index'] )
