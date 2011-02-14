@@ -3,7 +3,7 @@ set :application, "aydamaster.ru"
 set :domain, "chebytoday.ru"
 set :rails_env, "production"
 set :deploy_to, "/usr/local/www/aydamaster.ru"
-# set :revision,   'HEAD'
+# set :revision,   'develop'
 set :keep_releases,	3
 set :repository, 'ssh://dapi.orionet.ru/home/danil/code/aydamaster.ru/.git/'
 
