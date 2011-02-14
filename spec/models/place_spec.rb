@@ -4,6 +4,7 @@ describe Place do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
+
 # == Schema Information
 #
 # Table name: places
@@ -16,5 +17,6 @@ end
 #  updated_at :datetime
 #  state      :string(255)     not null
 #  domains    :text
+#  user_id    :integer         not null
 #
 

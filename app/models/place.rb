@@ -38,6 +38,7 @@ class Place < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: places
@@ -50,5 +51,6 @@ end
 #  updated_at :datetime
 #  state      :string(255)     not null
 #  domains    :text
+#  user_id    :integer         not null
 #
 

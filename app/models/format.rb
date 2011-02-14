@@ -8,7 +8,7 @@ class Format < ActiveRecord::Base
 
   def to_s
     if name?
-      "#{name} (#{geometry})"
+      "#{geometry} (#{name})"
     else
       geometry
     end
