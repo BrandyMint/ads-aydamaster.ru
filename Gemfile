@@ -1,7 +1,7 @@
-# -*- coding: undecided -*-
+# -*- coding: utf-8 -*-
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '>= 3.0.4'
 
 gem "rails-settings-cached", :require => "rails-settings"  
 
@@ -61,7 +61,9 @@ gem "cancan"
 gem "jquery-rails", ">= 0.2.6"
 # gem "best_in_place", :git => "https://github.com/bernat/best_in_place.git"
 gem "oa-core"
-gem "devise", :git => "git://github.com/plataformatec/devise.git", :branch => "omniauth"
+# gem "devise", :git => "git://github.com/plataformatec/devise.git", :branch => "omniauth"
+gem "devise", :git => "git://github.com/plataformatec/devise.git", :branch => "v1.2.oauth"
+
 gem 'hoptoad_notifier'
 
 gem "compass"
