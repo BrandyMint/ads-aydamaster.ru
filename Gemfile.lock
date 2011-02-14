@@ -7,13 +7,12 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: c42a86957ae3ce5955e9da2eaf604e1e3125693e
-  branch: v1.2.oauth
+  revision: f964ea526bd31a69ab1543a636976d382cee7299
   specs:
-    devise (1.2.oauth)
+    devise (1.2.rc)
       bcrypt-ruby (~> 2.1.2)
-      orm_adapter (~> 0.0.2)
-      warden (~> 1.0.0)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
 
 GIT
   remote: https://github.com/dima4p/russian.git
