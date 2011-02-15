@@ -1,3 +1,4 @@
+# -*- coding: undecided -*-
 class CampaignsController < ApplicationController
   inherit_resources
 
@@ -8,6 +9,8 @@ class CampaignsController < ApplicationController
   responders :flash, :http_cache
 
   before_filter :authenticate_user!
+
+  # TODO после создания редирект на площадку
 
   def activate
     @campaign = Campaign.find(params[:id])
