@@ -16,7 +16,7 @@ class Ability
       place && place.user == user || user.guest_places.include?(place)
     end
 
-    can :manage_guests, Place do |place|
+    can :manage, Place do |place|
       place && place.user == user
     end
 

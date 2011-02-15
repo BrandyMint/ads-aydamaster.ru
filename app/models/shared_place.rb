@@ -9,8 +9,7 @@ class SharedPlace < ActiveRecord::Base
   after_create :send_notification_email
 
   def set_guest
-    guest_user = User.find_by_email(email)
-    guest = guest_user if guest_user
+    self.guest = User.find_by_email(email)
   end
 
   def send_notification_email
