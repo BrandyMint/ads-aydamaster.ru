@@ -14,23 +14,23 @@ class CampaignsController < ApplicationController
 
   def activate
     @campaign = Campaign.find(params[:id])
-    @campaign.activate if @campaign.can_activate?
+    @campaign.reactivate if @campaign.can_reactivate?
 
-    redirect_to :back # campaign_path(@campaign)
+    redirect_to :back
   end
 
   def pause
     @campaign = Campaign.find(params[:id])
     @campaign.pause if @campaign.can_pause?
 
-    redirect_to :back # campaign_path(@campaign)
+    redirect_to :back
   end
 
   def archive
     @campaign = Campaign.find(params[:id])
     @campaign.archive
 
-    redirect_to :back #campaign_path(@campaign)
+    redirect_to :back
   end
 
   private

@@ -10,7 +10,33 @@ class Campaign < ActiveRecord::Base
 
   validates_presence_of :place, :banner, :start_date, :user
 
-  has_states
+  has_states do
+    after_transition :on => :activate do |campaign|
+      campaign.update_attribute(:started_at, Time.now) unless campaign.started_at
+    end
+
+    after_transition :on => :reactivate do |campaign|
+      if campaign.place.can_activate?
+        campaign.place.activate
+      else
+        campaign.pause
+      end
+    end
+
+    after_transition :on => :archive do |campaign|
+      campaign.update_attribute(:stopped_at, Time.now)
+      campaign.place.release
+    end
+
+    after_transition :active => any do |campaign|
+      campaign.place.release
+      campaign.place.update_attribute(:active_campaigns_count, campaign.place.active_campaigns_count - 1)
+    end
+
+    after_transition any => :active do | campaign|
+      campaign.place.update_attribute(:active_campaigns_count, campaign.place.active_campaigns_count + 1)
+    end
+  end
 
   def self.new(attributes = nil)
     attributes[:start_date] = Date.today

@@ -1,14 +1,16 @@
 module HasStates
-  def has_states
-    # Объект может иметь три состояния: active, paused, archived
-    # Из active и paused можно перейти в любой другое состояние,
-    # из archived выбраться нельзя
-    state_machine :state, :initial=>:active do
+  def has_states(&block)
+    state_machine :state, :initial=>:ready do
+      state :ready
       state :active
       state :paused
       state :archived
 
       event :activate do
+        transition :ready => :active
+      end
+
+      event :reactivate do
         transition :paused => :active
       end
 
@@ -17,8 +19,14 @@ module HasStates
       end
 
       event :archive do
-        transition [:active, :paused] => :archived
+        transition [:ready, :active, :paused] => :archived
       end
+
+      event :release do
+        transition :active => :ready
+      end
+
+      self.instance_eval(&block) if block_given?
     end
   end
 end

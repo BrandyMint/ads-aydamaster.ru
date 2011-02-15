@@ -18,11 +18,11 @@ module ApplicationHelper
       button_tag(object, text, active)
     else
       link_to( button_tag(object, text, active),
-               send("activate_#{object.class.name.underscore}_path", object),
+               send("#{text}_#{object.class.name.underscore}_path", object), :method => :put,
                :class=>'state_link' ).html_safe
     end
   end
-  
+
   def state_actions(object)
     content_tag :div, :class=>'state_buttons' do 
       links = ""

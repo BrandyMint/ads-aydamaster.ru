@@ -8,7 +8,7 @@ class PlacesController < ApplicationController
 
   def activate
     @place = Place.find(params[:id])
-    @place.activate if @place.can_activate?
+    @place.reactivate if @place.can_reactivate?
 
     redirect_to place_path(@place)
   end

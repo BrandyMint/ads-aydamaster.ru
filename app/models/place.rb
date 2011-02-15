@@ -17,7 +17,33 @@ class Place < ActiveRecord::Base
 
   default_scope order( :created_at )
 
-  has_states
+  has_states do
+    after_transition :on => :reactivate do |place|
+      place.campaigns.each do |campaign|
+        campaign.activate if campaign.can_activate?
+      end
+    end
+
+    after_transition :on => :pause do |place|
+      place.campaigns.each do |campaign|
+        campaign.release if campaign.can_release?
+      end
+    end
+
+    after_transition :on => :archive do |place|
+      place.campaigns.each do |campaign|
+        campaign.archive
+      end
+    end
+
+    after_transition :on => :release do |place|
+      # Тут есть неявная связь с моделью Campaign, именно из нее вызывается place.release и
+      # имеено оттуда инициируется уменьшение place.active_campaigns_count после вызова place.release
+      unless place.active_campaigns_count == 1
+        place.activate
+      end
+    end
+  end
 
   # Можно геометрию задавать просто текстом: 200x200
   def geometry=(geometry)
