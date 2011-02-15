@@ -22,6 +22,10 @@ module HasStates
         transition [:ready, :active, :paused] => :archived
       end
 
+      event :release do
+        transition :active => :ready
+      end
+
       self.instance_eval(&block) if block_given?
     end
   end

@@ -11,10 +11,6 @@ class Campaign < ActiveRecord::Base
   validates_presence_of :place, :banner, :start_date, :user
 
   has_states do
-    event :release do
-      transition :active => :ready
-    end
-
     after_transition :on => :activate do |campaign|
       campaign.update_attribute(:started_at, Time.now) unless campaign.started_at
     end

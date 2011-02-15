@@ -35,6 +35,14 @@ class Place < ActiveRecord::Base
         campaign.archive
       end
     end
+
+    after_transition :on => :release do |place|
+      # Тут есть неявная связь с моделью Campaign, именно из нее вызывается place.release и
+      # имеено оттуда инициируется уменьшение place.active_campaigns_count после вызова place.release
+      unless place.active_campaigns_count == 1
+        place.activate
+      end
+    end
   end
 
   # Можно геометрию задавать просто текстом: 200x200

@@ -5,6 +5,11 @@ describe Place do
     Place.state_machine.states.by_priority.collect{|s| s.name}.should == [:ready, :active, :paused, :archived]
   end
 
+  it "should have [:activate, :reactivate, :pause, :archive, :release] state events defined" do
+    Place.state_machine.events.collect{|e| e.name}.should ==
+      [:activate, :reactivate, :pause, :archive, :release]
+  end
+
   context "state callbacks" do
     it "should activate campaigns on reactivate" do
       p = Place.new(:state => "paused")
@@ -36,6 +41,14 @@ describe Place do
       campaign.should_receive(:archive){ true }
 
       transition = StateMachine::Transition.new(p, Place.state_machine, :archive, :active, :archived)
+      transition.run_callbacks
+    end
+
+    it "should activate if active_campaigns_count > 1 on release" do
+      p = Place.new(:active_campaigns_count => 2)
+      p.should_receive(:activate)
+
+      transition = StateMachine::Transition.new(p, Place.state_machine, :release, :active, :ready)
       transition.run_callbacks
     end
   end
