@@ -11,7 +11,7 @@ module HasStates
       end
 
       event :reactivate do
-        transition :pause => :active
+        transition :paused => :active
       end
 
       event :pause do
