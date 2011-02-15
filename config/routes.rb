@@ -26,6 +26,8 @@ Aydamaster::Application.routes.draw do
   resources :websites
   resources :formats
 
+  resources :shared_places, :only => [:create, :destroy]
+
   devise_for :users, :controllers => {
     #:registrations => "registrations22",
     # :passwords => "passwords",
