@@ -6,6 +6,11 @@ class PlacesController < ApplicationController
 
   before_filter :authenticate_user!
 
+  def show
+    @place = Place.find(params[:id])
+    authorize! :read, @place
+  end
+
   def activate
     @place = Place.find(params[:id])
     @place.reactivate if @place.can_reactivate?

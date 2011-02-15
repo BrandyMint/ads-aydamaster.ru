@@ -1,17 +1,21 @@
 class SharedPlacesController < ApplicationController
-
   def create
     if params['place_id'] && params['email']
       place = Place.find(params['place_id'])
-      shared_place = SharedPlace.create(:guest_place => place, :email => params['email']) if place
+      if place
+        shared_place = SharedPlace.new(:guest_place => place, :email => params['email'])
+        authorize! :create, shared_place
+        shared_place.save
+      end
     end
 
     redirect_to :back
   end
 
   def destroy
-    share = SharedPlace.find(params[:id])
-    share.destroy
+    shared_place = SharedPlace.find(params[:id])
+    authorize! :destroy, shared_place
+    shared_place.destroy
 
     redirect_to :back
   end
