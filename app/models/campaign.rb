@@ -15,30 +15,30 @@ class Campaign < ActiveRecord::Base
       transition :active => :ready
     end
 
-    after_transition :on => :activate do
-      update_attribute(:started_at, Time.now) unless started_at
+    after_transition :on => :activate do |campaign|
+      campaign.update_attribute(:started_at, Time.now) unless campaign.started_at
     end
 
-    after_transition :on => :reactivate do
-      if place.can_activate?
-        place.activate
+    after_transition :on => :reactivate do |campaign|
+      if campaign.place.can_activate?
+        campaign.place.activate
       else
-        pause
+        campaign.pause
       end
     end
 
-    after_transition :on => :archive do
-      update_attribute(:stopped_at, Time.now)
-      place.release
+    after_transition :on => :archive do |campaign|
+      campaign.update_attribute(:stopped_at, Time.now)
+      campaign.place.release
     end
 
-    after_transition :active => any do
-      place.release
-      place.update_attribute(:active_campaigns_count, place.active_campaigns_count + 1)
+    after_transition :active => any do |campaign|
+      campaign.place.release
+      campaign.place.update_attribute(:active_campaigns_count, campaign.place.active_campaigns_count - 1)
     end
 
-    after_transition any => :active do
-      place.update_attribute(:active_campaigns_count, place.active_campaigns_count - 1)
+    after_transition any => :active do | campaign|
+      campaign.place.update_attribute(:active_campaigns_count, campaign.place.active_campaigns_count + 1)
     end
   end
 
