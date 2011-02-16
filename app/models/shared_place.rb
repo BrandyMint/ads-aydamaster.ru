@@ -5,6 +5,8 @@ class SharedPlace < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :place_id
 
+  validates_uniqueness_of :email, :scope => :place_id
+
   before_create :set_guest
   after_create :send_notification_email
 

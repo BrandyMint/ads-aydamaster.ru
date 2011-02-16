@@ -1,7 +1,9 @@
 class SharedPlacesController < ApplicationController
+  before_filter :authenticate_user!
+
   def create
     if params['place_id'] && params['email']
-      place = Place.find(params['place_id'])
+      place = current_user.places.find(params['place_id'])
       if place
         shared_place = SharedPlace.new(:guest_place => place, :email => params['email'])
         authorize! :create, shared_place
