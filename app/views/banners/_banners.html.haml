@@ -15,6 +15,10 @@
             .format
               = banner.format
               = "flash" if banner.is_flash?
+            .campaigns_count
+              В кампаниях:
+              = banner.campaigns.live.count
+
         %td= banner.state
 
 %br

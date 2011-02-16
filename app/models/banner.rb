@@ -33,7 +33,7 @@ class Banner < ActiveRecord::Base
   has_states do
     
     after_transition :on => :archive do |banner|
-      banner.campaign.archive
+      banner.campaigns.each &:archive
     end
     
   end

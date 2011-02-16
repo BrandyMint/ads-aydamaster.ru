@@ -14,6 +14,9 @@
   %b Link:
   = @banner.link
 %p
+  %b Используется в кампаниях:
+  = @banners.campaigns.live.count
+%p
   %b Тип
   = @banner.is_flash? ? 'flash' : 'image'
 %p
