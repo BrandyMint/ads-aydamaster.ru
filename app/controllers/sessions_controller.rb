@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 class SessionsController < Devise::SessionsController
-  def after_sign_in_path_for(resource)
-    places_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   places_path
+  # end
 
   # def create
   #   if params[:user] and user = User.find_by_email(params[:user][:email]) and !user.normal?

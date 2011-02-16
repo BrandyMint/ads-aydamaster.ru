@@ -9,7 +9,7 @@
         = state_actions(place)
       %td
         = link_to "Разместить баннер", new_campaign_path( :campaign => { :place_id=>place  })
-        - if place.banners.present?
+        - if place.campaigns.live.present?
           (
-          = link_to banners_in_words( place.banners ), place
+          = link_to banners_in_words( place.campaigns ), place
           )

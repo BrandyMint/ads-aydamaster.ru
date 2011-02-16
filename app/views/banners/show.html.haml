@@ -21,7 +21,7 @@
   = @banner.link
 %p
   %b Image/flash path:
-  = @banner.banner.url
+  = link_to @banner.banner.url, @banner.banner.url
 
 %p
   = image_tag @banner.banner.url
