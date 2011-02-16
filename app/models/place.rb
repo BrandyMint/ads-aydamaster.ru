@@ -51,12 +51,11 @@ class Place < ActiveRecord::Base
       fail( "No such style: #{format}" )
   end
 
-  def to_s
+  def to_label
     name || "#{id} #{format}"
-    #"#{name} #{format}"
   end
 
-  alias_method :to_label, :to_s
+  alias_method :to_s, :to_label
 
   def uid
     id

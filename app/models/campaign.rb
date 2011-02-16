@@ -9,6 +9,7 @@ class Campaign < ActiveRecord::Base
   has_many :activity_log_entries, :as => :subject
 
   scope :active, where(:state=>'active')
+  scope :live, where("state <> 'archived'")
 
   validates_presence_of :place, :banner, :start_date, :user
 

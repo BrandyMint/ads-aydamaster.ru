@@ -1,19 +1,24 @@
 %h1
   = "Площадка &#8470;#{@place.uid} &laquo;#{@website}/#{@place.name}&raquo;".html_safe
-  = state_actions(@place)
+= state_actions(@place)
 
 .column_left
   %p
-    %b Типоразмер: 
+    %b Формат: 
     #{@place.format}
 
   %h2
-    Код для вставки
-  %p Вставьте этот код сразу после открывающего тэга <code>${"<head>"}</code>
+    Код для вставки в html-страницу
+  %p
+    Вставьте этот код сразу после открывающего тэга
+    %em
+      %code
+        :escaped
+          <head>
   %pre.aydabanner_code
     %code.language-js
       = "<script type=\"text/javascript\" src=\"http://rotator.aydamaster.ru/rotator.js\"></script>"
-  %p Вставьте этот код в html-страницу сайта, на место отображения баннера:
+  %p Вставьте этот код на место отображения баннера:
   %p
     -# %textarea(rows=1 cols=120 class="aydabanner_code" readonly)
     %pre.aydabanner_code
@@ -22,7 +27,7 @@
 
 .column_right
   %h2 Рекламные кампании
-  = render 'campaigns/campaigns', :campaigns => @place.campaigns
+  = render 'campaigns/campaigns', :campaigns => @place.campaigns.live
 
 .clear
 

@@ -1,0 +1,32 @@
+$button_bg_color1 = #eee
+$button_bg_color2 = #ccc
+// $button_border_color = #aaa
+.state_buttons
+  clear: both
+  .state_button
+    display: block
+    width: 50px
+    text-align: center
+    float: left
+    // border: 1px solid gray
+    margin: 3px 6px
+    padding: 4px 6px
+    font-size: 9px
+    border: 1px solid #eee
+    +border-radius(3px)
+  a.state_button
+    +box-shadow(#666,0,0,3px)
+    color: #333
+    text-decoration: none
+    +linear-gradient(color-stops($button_bg_color1, $button_bg_color2),top)
+    &:hover
+      color: black
+      $c1 = darken($button_bg_color1,5)
+      $c2 = darken($button_bg_color2,5)
+      +linear-gradient(color-stops($c1,$c2),top)
+
+  div.state_button
+    color: white
+    font-weight: bold
+    background-color: green
+    border-color: #060

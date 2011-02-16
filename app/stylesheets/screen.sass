@@ -44,6 +44,7 @@ $red_color: red
 // @import success-sasses/simple_form/simple_form
 @import nifty
 @import topper
+@import state_buttons
 
 
 // @import "compass/css3/background-clip"
@@ -69,14 +70,18 @@ table
     padding-top: 5px
     padding-right: 10px
 
-.aydabanner_code
-  // width: auto
-  overflow: auto
-  padding: 15px 15px
-  background-color: #eee
+pre.aydabanner_code
+  width: auto
+  // overflow: auto
+  white-space: pre-wrap
+  padding: 5px 5px
   border: 1px solid #ccc
-  /* color: #600
+  background-color: #eee
   +border-radius(5px)
+code
+  background-color: #eee
+  padding: 2px 5px
+  
 
 
 .desc
@@ -129,8 +134,8 @@ table
       padding: 15px
 
   a.campaign_link
-    width: 220px
-    height: 40px
+    width: 320px
+    height: 90px
     padding: 10px
     float: left
     display: block
@@ -154,20 +159,6 @@ table
         line-height: 150%
   .campaign_state
     float: left
-    padding: 10px
-    width: 120px
+    padding: 10px 0 0 10px
+    width: 60px
 
-.state_buttons
-  a.state_link
-    text-decoration: none
-  // button.state_button
-    // +button-minimal
-  button.state_button
-    font-size: 9px
-    padding: 0
-    // &[disabled]
-    &.active
-      color: white
-      font-weight: bold
-      // background-color: black
-      // 2px 2px
