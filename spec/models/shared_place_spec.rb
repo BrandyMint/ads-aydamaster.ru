@@ -11,6 +11,7 @@ describe SharedPlace do
       # версии Rails присутствует баг, который не позволяет это сделать
       # https://rails.lighthouseapp.com/projects/8994/tickets/5472-unable-to-manually-run-activerecord-object-callbacks
       # Ожидается, что он будет исправлен в 3.0.5
+      shared.stub(:send_notification_email)
       shared.run_callbacks(:create)
     end
   end
@@ -37,6 +38,13 @@ describe SharedPlace do
   end
 
   describe "#send_notification_email" do
-    pending "TODO: Add implementation"
+    it "sends notification message to user" do
+      message = stub("message")
+      Notification.should_receive(:place_sharing){ message }
+      message.should_receive(:deliver)
+
+      shared = SharedPlace.new()
+      shared.send_notification_email
+    end
   end
 end

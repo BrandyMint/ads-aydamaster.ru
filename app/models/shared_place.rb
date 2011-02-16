@@ -13,6 +13,7 @@ class SharedPlace < ActiveRecord::Base
   end
 
   def send_notification_email
-    # TODO: add code to send email
+    message = Notification.place_sharing(email, guest_place, guest)
+    message.deliver
   end
 end
