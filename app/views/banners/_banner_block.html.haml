@@ -1,0 +1,39 @@
+-# = link_to campaign, :class=>'campaign_link' do 
+
+.b-banner
+  .banner_image
+    = link_to banner do
+      = image_tag( banner.banner.url(:thumb) )
+  .banner_info
+    .banner_name
+      = link_to banner do
+        = banner.name
+    .banner_format= banner.labeled_format
+    .banner_details
+      - c = banner.campaigns.live
+      - if c.present?
+        - if defined?(campaign) and c.count == 1 and c.first == campaign
+          Участвует только в этой кампании
+        - else
+          Участвует в кампаниях:
+          = c.count
+      - else
+        В каманиях не участвует
+
+-#       %tr
+-#         %td.banner_image
+-#           = link_to image_tag( banner.banner.url(:mini) ), banner
+-#         %td.banner_info
+-#           = link_to banner do
+-#             .1_line= banner.name
+-#             .format
+-#               = banner.format
+-#               = "flash" if banner.is_flash?
+-#             .campaigns_count
+-#               В кампаниях:
+-#               = banner.campaigns.live.count
+
+-#         %td= banner.state
+
+-# %br
+

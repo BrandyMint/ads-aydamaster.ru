@@ -2,12 +2,7 @@
   %ol
     - campaigns.each do |campaign|
       %li
-        = link_to campaign, :class=>'campaign_link' do 
-          .campaign_image
-            = image_tag( campaign.banner.banner.url(:thumb) )
-          .campaign_info
-            %em= campaign.banner.name
-            %span= campaign.banner.format
+        = render 'banners/banner_block', :banner => campaign.banner, :campaign => campaign
         .campaign_state
           = state_actions(campaign)
         .clear

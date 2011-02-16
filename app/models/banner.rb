@@ -57,7 +57,10 @@ class Banner < ActiveRecord::Base
       self.width, self.height = g.width, g.height
       self.format = Format.find_or_create_by_width_and_height( width, height )
     end
+  end
 
+  def labeled_format
+    "#{'flash ' if is_flash?}#{format.geometry}"
   end
 
   def set_name

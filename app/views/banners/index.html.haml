@@ -1,5 +1,8 @@
 %h1 Список баннеров
 
-= render 'banners/banners', :banners=>@banners
+.banners
+  - @banners.each do |banner|
+    = render 'banner_block', :banner => banner
 
+.clear
 = link_to 'New Banner', new_banner_path

@@ -45,6 +45,7 @@ $red_color: red
 @import nifty
 @import topper
 @import state_buttons
+@import banner
 
 
 // @import "compass/css3/background-clip"
@@ -122,6 +123,22 @@ code
 /* 	width: 400px;
 /* }
 
+.banners
+  ol
+    margin: 0
+    padding: 0 0 20px 0
+    list-style-type: none
+    list-style-image:none
+    width: 350px
+    li
+      float: left
+      width: 350px
+      height: 90px
+      background-color: #eee
+      padding: 15px
+      border-bottom: 1px dotted #999
+
+
 .campaigns
   ol
     margin: 0
@@ -132,33 +149,7 @@ code
     li
       background-color: #eee
       padding: 15px
-
-  a.campaign_link
-    width: 320px
-    height: 90px
-    padding: 10px
-    float: left
-    display: block
-    text-decoration: none
-    &:hover
-      background-color: #fff
-    .campaign_image
-      float: left
-      width: 120px
-    .campaign_info
-      float: left
-      width: 100px
-      em
-        color: #333
-        display: block
-        font: normal 85% Verdana, Helvetica, sans-serif
-        line-height: 125%
-      span 
-        color: #125F15
-        font: normal 70% Verdana, Helvetica, sans-serif
-        line-height: 150%
   .campaign_state
     float: left
-    padding: 10px 0 0 10px
+    padding: 0px 0 0 10px
     width: 60px
-
