@@ -1,0 +1,13 @@
+- if can? :update, place
+  %h2 Гости
+
+  - place.shared_places.each do |share|
+    %p
+      = share.email
+      = link_to("[x]", shared_place_path(share), :method => :delete)
+
+  = form_tag shared_places_path, :method => :post do
+    = label_tag 'Email:'
+    = hidden_field_tag :place_id, @place.id
+    = text_field_tag :email
+    = submit_tag 'Дать доступ'

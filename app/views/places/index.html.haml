@@ -1,2 +1,7 @@
 %h1 Рекламные площадки
 = render 'places/list', :places=>@places
+= link_to '[+] Добавить площадку', new_place_path()
+
+%h2 Арендованные площадки
+= render 'list', :places => current_user.guest_places
+

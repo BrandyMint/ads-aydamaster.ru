@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :banners
   has_many :campaigns
 
+  has_many :shared_places, :foreign_key => :guest_id
+  has_many :guest_places, :through => :shared_places
+
   # Стиль отображения списка баннеров list/images
 
   state_machine :list_style, :initial=>:list do

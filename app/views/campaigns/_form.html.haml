@@ -3,7 +3,7 @@
   -# = f.input :place_id, :as => :hidden, :value => @campaign.place_id
   - f.inputs do
     -# = f.input :place, :input_html => { :disabled => true }
-    = f.input :place, :collection => current_user.places
+    = f.input :place, :collection => current_user.places + current_user.guest_places
     -# - banners = @campaign.place.format.banners.ready
     - banners = current_user.banners
     = f.input :banner, :collection => banners, :hint => "Баннеров доступно: #{banners.count}"

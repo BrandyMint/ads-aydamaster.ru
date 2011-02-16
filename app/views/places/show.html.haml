@@ -31,6 +31,9 @@
 
 .clear
 
+
+= render "guests", :place => @place
+
 = render "shared/activity_log", :activities => @place.activity_log_entries
 
 = link_to '&larr; список площадок'.html_safe, websites_path

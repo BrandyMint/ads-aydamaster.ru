@@ -12,6 +12,9 @@ class Place < ActiveRecord::Base
   has_many :activity_log_entries, :as => :subject
   has_many :banners, :through => :campaigns
 
+  has_many :shared_places
+  has_many :guests, :class_name => 'User', :through => :shared_places
+
   validates_presence_of :format, :user
   # validates_uniqueness_of :name, :scope=>:website_id, :allow_nil=>true, :allow_blank=>true
 
