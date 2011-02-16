@@ -8,7 +8,7 @@ class Notification < ActionMailer::Base
       @guest = guest
       template = "place_sharing_with_existing_user"
     else
-      @signin_link = sign_in_path
+      @signin_link = new_user_registration_path
       template = "place_sharing_with_non_existing_user"
     end
 
