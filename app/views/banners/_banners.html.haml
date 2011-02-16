@@ -12,7 +12,9 @@
         %td.banner_info
           = link_to banner do
             .1_line= banner.name
-            .format= banner.format
+            .format
+              = banner.format
+              = "flash" if banner.is_flash?
         %td= banner.state
 
 %br

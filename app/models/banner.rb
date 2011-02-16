@@ -13,16 +13,20 @@ class Banner < ActiveRecord::Base
   validates_presence_of :user, :banner #, :link #, :banner_file_name
 
   has_attached_file :banner, :styles => {
-    :thumb => ["120x60>", :png],
+    :thumb => ["120x90>", :png],
     :mini => ["80x40>", :png],
   }
   
   validates_attachment_presence :banner
-  validates_attachment_size :banner, :less_than => 500.kilobytes
+  validates_attachment_size :banner, :less_than => 200.kilobytes
   validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'application/x-shockwave-flash']
   validate do |banner|
     # Удаляем ошибочки создания :preview для флешек
-    banner.errors.clear if is_flash?
+    if is_flash?
+      banner.errors.clear
+      # Генерация ноготка для flash
+      # "gnash -v -1 -r agg --render-mode 1 --width 160 --height 600 --screenshot 5 --max-advances 10 --screenshot-file "1.png" ~/projects/nz/pic/sweetdress.swf ; convert -crop 160x600+89-0 1.png 2.png"
+    end
   end
 
   has_states

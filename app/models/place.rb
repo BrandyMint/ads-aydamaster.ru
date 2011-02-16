@@ -52,7 +52,7 @@ class Place < ActiveRecord::Base
   end
 
   def to_s
-    name
+    name || "#{id} #{format}"
     #"#{name} #{format}"
   end
 
