@@ -2,8 +2,7 @@ class BannersController < ApplicationController
 
   inherit_resources
 
-
-  #   resource        #=> @project
+  #  resource        #=> @project
   # collection      #=> @projects
   # resource_class  #=> Project
 
@@ -37,6 +36,11 @@ class BannersController < ApplicationController
   end
 
   protected
+
+
+  def collection
+    @banners = Banner.live
+  end
 
    def begin_of_association_chain
      current_user

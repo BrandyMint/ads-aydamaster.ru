@@ -9,6 +9,7 @@ class Banner < ActiveRecord::Base
   has_many :activity_log_entries, :as => :subject
 
   scope :ready, where(:state=>:ready)
+  scope :live, where("state <> 'archived'")
 
   validates_presence_of :user, :banner #, :link #, :banner_file_name
 
@@ -29,7 +30,13 @@ class Banner < ActiveRecord::Base
     end
   end
 
-  has_states
+  has_states do
+    
+    after_transition :on => :archive do |banner|
+      banner.campaign.archive
+    end
+    
+  end
 
   before_save :set_format
   before_save :set_name
@@ -41,13 +48,16 @@ class Banner < ActiveRecord::Base
   end
 
   def set_format
-    if is_flash?
-      g = ImageSpec.new(banner.to_file )
-    else
-      g = Paperclip::Geometry.from_file( banner.to_file )
+    if banner.to_file
+      if is_flash?
+        g = ImageSpec.new(banner.to_file)
+      else
+        g = Paperclip::Geometry.from_file( banner.to_file )
+      end
+      self.width, self.height = g.width, g.height
+      self.format = Format.find_or_create_by_width_and_height( width, height )
     end
-    self.width, self.height = g.width, g.height
-    self.format = Format.find_or_create_by_width_and_height( width, height )
+
   end
 
   def set_name
