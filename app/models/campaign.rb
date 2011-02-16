@@ -8,6 +8,8 @@ class Campaign < ActiveRecord::Base
 
   has_many :activity_log_entries, :as => :subject
 
+  scope :active, where(:state=>'active')
+
   validates_presence_of :place, :banner, :start_date, :user
 
   has_states do
@@ -30,11 +32,11 @@ class Campaign < ActiveRecord::Base
 
     after_transition :active => any do |campaign|
       campaign.place.release
-      campaign.place.update_attribute(:active_campaigns_count, campaign.place.active_campaigns_count - 1)
+      campaign.place.increment! :active_campaigns_count
     end
 
     after_transition any => :active do | campaign|
-      campaign.place.update_attribute(:active_campaigns_count, campaign.place.active_campaigns_count + 1)
+      campaign.place.decrement! :active_campaigns_count
     end
   end
 
