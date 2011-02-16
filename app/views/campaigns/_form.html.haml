@@ -9,4 +9,6 @@
     = f.input :banner, :collection => banners, :hint => "Баннеров доступно: #{banners.count}"
     = f.input :start_date, :as => :datepicker
     = f.input :stop_date, :as => :datepicker
+    = f.input :max_click_count
+    = f.input :max_view_count
   = f.submit

@@ -15,6 +15,14 @@
   = @campaign.stop_date
 
 %p
+  %b Max click count:
+  = @campaign.max_click_count
+
+%p
+  %b Max view count:
+  = @campaign.max_view_count
+
+%p
   = state_actions(@campaign)
 
 = render :partial => "shared/activity_log", :locals => {:activities => @campaign.activity_log_entries}
