@@ -18,13 +18,13 @@
   = @banner.campaigns.live.count
 %p
   %b Тип
-  = @banner.is_flash? ? 'flash' : 'image'
+  = @banner.flash? ? 'flash' : 'image'
 %p
   %b Image/flash path:
   = link_to @banner.banner.url, @banner.banner.url
 
 %p
-  = image_tag @banner.banner.url
+  = image_tag @banner.banner.url(:image)
 
 %p
   = state_actions(@banner)

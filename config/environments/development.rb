@@ -20,6 +20,8 @@ Aydamaster::Application.configure do
       end
     }
   end
+  
+  # Paperclip.options[:command_path] = "/home/danil/code/aydamaster.ru/bin/"
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true

@@ -1,15 +1,19 @@
-$image_border: 1px
-$banner_image_width: 120px + $image_border*2
+$image_border1: 1px
+$image_border_color1: #888
+$image_border2: 1px
+$image_border_color2: #ddd
+$banner_image_width: 120px + $image_border2*2
 $banner_info_width: 180px
 $banner_states_width: 100px
 $banner_height: 90px
-$b-banner_width: $banner_image_width + $banner_info_width + 22px + $image_border*2 + $image_border*2
+$b-banner_width: $banner_image_width + $banner_info_width + 22px + $image_border1*2 + $image_border2*2
+$banner_block_height: 90px + ($image_border1+$image_border2)*2
 
 .b-full-banner
   float: left
-  /* border: 1px dashed green
+  // border: 1px dashed green
   width: 2px + $b-banner_width + 30px + $banner_states_width
-  height: 120px
+  height: $banner_block_height + 30px
   margin: 0px 15px 25px 0px
   .banner_states
     float: left
@@ -20,7 +24,7 @@ $b-banner_width: $banner_image_width + $banner_info_width + 22px + $image_border
 a.b-banner
   display: block
   width: $b-banner_width
-  height: 100px
+  height: $banner_block_height
   float: left
   padding: 15px 0px 15px 15px
   +border-radius(5px)
@@ -34,15 +38,15 @@ a.b-banner
     +gradient-bg(#333, 10)
     float: left
     width: $banner_image_width
-    height: 90px + $image_border * 2
-    line-height: 90px + $image_border*2
-    border: $image_border solid #999
+    height: 90px + $image_border2 * 2
+    line-height: 90px + $image_border2*2
+    border: $image_border1 solid  $image_border_color1
     position: relative
     img
       position: absolute
       top: 0
       left: 0
-      border: $image_border solid #eee
+      border: $image_border2 solid $image_border_color2
       vertical-align: middle
   .banner_info
     float: left

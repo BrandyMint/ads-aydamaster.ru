@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require 'paperclip_processors/flash_thumbnail'
+
 class Banner < ActiveRecord::Base
   extend HasStates
 
@@ -13,23 +15,32 @@ class Banner < ActiveRecord::Base
 
   validates_presence_of :user, :banner #, :link #, :banner_file_name
 
-  has_attached_file :banner, :styles => {
-    :thumb => ["120x90>", :png],
-    :cropped => ["120x90#", :png],
-    :mini => ["80x40>", :png],
-  }
+  has_attached_file( :banner, :styles => {
+      :thumb => { :geometry=>"120x90>", :format=>:png, :screenshot=>5},
+      :cropped => { :geometry=>"120x90#", :format=>:png, :screenshot=>5 },
+      :image => { :geometry=>"900x600>", :format=>:png, :screenshot=>5 }
+    },
+    :processors => lambda { |a| a.flash? ? [ :flash_thumbnail ] : [ :thumbnail ] }
+    )
   
   validates_attachment_presence :banner
   validates_attachment_size :banner, :less_than => 200.kilobytes
-  validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'application/x-shockwave-flash']
-  validate do |banner|
-    # Удаляем ошибочки создания :preview для флешек
-    if is_flash?
-      banner.errors.clear
-      # Генерация ноготка для flash
-      # "gnash -v -1 -r agg --render-mode 1 --width 160 --height 600 --screenshot 5 --max-advances 10 --screenshot-file "1.png" ~/projects/nz/pic/sweetdress.swf ; convert -crop 160x600+89-0 1.png 2.png"
-    end
-  end
+  validates_attachment_content_type( :banner,
+    :content_type => ['image/jpeg', 'image/png', 'image/gif', 'application/x-shockwave-flash']
+    )
+
+  # def before_post_process
+  #   debugger
+  # end
+  
+  # validate do |banner|
+  #   # Удаляем ошибочки создания :preview для флешек
+  #   if flash?
+  #     banner.errors.clear
+  #     # Генерация ноготка для flash
+  #     # "gnash -v -1 -r agg --render-mode 1 --width 160 --height 600 --screenshot 5 --max-advances 10 --screenshot-file "1.png" ~/projects/nz/pic/sweetdress.swf ; convert -crop 160x600+89-0 1.png 2.png"
+  #   end
+  # end
 
   has_states do
     
@@ -44,24 +55,25 @@ class Banner < ActiveRecord::Base
 
   # TODO Валидацию на размеры баннеры и формата места
 
-  def is_flash?
+  def flash?
     banner_content_type=='application/x-shockwave-flash'
   end
 
   def set_format
     if banner.to_file
-      if is_flash?
-        g = ImageSpec.new(banner.to_file)
-      else
-        g = Paperclip::Geometry.from_file( banner.to_file )
-      end
+      # if flash?
+      #   g = ImageSpec.new(banner.to_file)
+      # else
+      #   g = Paperclip::Geometry.from_file( banner.to_file )
+      # end
+      g = Paperclip::Geometry.from_file( banner.to_file )
       self.width, self.height = g.width, g.height
       self.format = Format.find_or_create_by_width_and_height( width, height )
     end
   end
 
   def labeled_format
-    "#{format.geometry}#{' <em>flash</em>' if is_flash?}".html_safe
+    "#{format.geometry}#{' <em>flash</em>' if flash?}".html_safe
   end
 
   def set_name
