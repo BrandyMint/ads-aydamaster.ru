@@ -26,10 +26,5 @@ describe CampaignsController do
     it "recognizes and generates #update" do
       { :put => "/campaigns/1" }.should route_to(:controller => "campaigns", :action => "update", :id => "1")
     end
-
-    it "recognizes and generates #destroy" do
-      { :delete => "/campaigns/1" }.should route_to(:controller => "campaigns", :action => "destroy", :id => "1")
-    end
-
   end
 end

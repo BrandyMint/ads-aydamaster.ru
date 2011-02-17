@@ -20,7 +20,7 @@ describe Campaign do
 
     it "updates started_at field on activate" do
       Time.stub(:now){ CURRENT_TIME }
-      @campaign.place.stub(:update_attribute)
+      @campaign.place.stub(:increment!)
 
       @campaign.should_receive(:update_attribute).with(:started_at, CURRENT_TIME)
 
@@ -30,7 +30,7 @@ describe Campaign do
 
     it "activates place if it can be activated on reactivate" do
       @campaign.state = "paused"
-      @campaign.place.stub(:update_attribute)
+      @campaign.place.stub(:increment!)
 
       @campaign.place.should_receive(:can_activate?){ true }
       @campaign.place.should_receive(:activate)
@@ -39,9 +39,9 @@ describe Campaign do
       t.run_callbacks
     end
 
-    it "pauses campaing if place cannot be activated on reactivate" do
+    it "pauses campaign if place cannot be activated on reactivate" do
       @campaign.state = "paused"
-      @campaign.place.stub(:update_attribute)
+      @campaign.place.stub(:increment!)
 
       @campaign.place.should_receive(:can_activate?){ false }
       @campaign.should_receive(:pause)
@@ -61,7 +61,7 @@ describe Campaign do
 
     it "increments place.active_campaigns_count on any to :active transition" do
       @campaign.stub(:started_at){ CURRENT_TIME }
-      @campaign.place.should_receive(:update_attribute).with(:active_campaigns_count, 1)
+      @campaign.place.should_receive(:increment!)
 
       t = StateMachine::Transition.new(@campaign, Campaign.state_machine, :activate, :ready, :active)
       t.run_callbacks
@@ -69,7 +69,7 @@ describe Campaign do
 
     it "decrements place.active_campaigns_count on :active to any transition" do
       @campaign.place.stub(:release)
-      @campaign.place.should_receive(:update_attribute).with(:active_campaigns_count, -1)
+      @campaign.place.should_receive(:decrement!)
 
       t = StateMachine::Transition.new(@campaign, Campaign.state_machine, :release, :active, :ready)
       t.run_callbacks

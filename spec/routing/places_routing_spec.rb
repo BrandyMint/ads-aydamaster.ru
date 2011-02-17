@@ -2,6 +2,8 @@ require "spec_helper"
 
 describe PlacesController do
   describe "routing" do
+    before(:all) do
+    end
 
     it "recognizes and generates #index" do
       { :get => "/places" }.should route_to(:controller => "places", :action => "index")
@@ -26,10 +28,5 @@ describe PlacesController do
     it "recognizes and generates #update" do
       { :put => "/places/1" }.should route_to(:controller => "places", :action => "update", :id => "1")
     end
-
-    it "recognizes and generates #destroy" do
-      { :delete => "/places/1" }.should route_to(:controller => "places", :action => "destroy", :id => "1")
-    end
-
   end
 end

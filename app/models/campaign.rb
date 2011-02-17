@@ -35,11 +35,11 @@ class Campaign < ActiveRecord::Base
 
     after_transition :active => any do |campaign|
       campaign.place.release
-      campaign.place.increment! :active_campaigns_count
+      campaign.place.decrement! :active_campaigns_count
     end
 
     after_transition any => :active do | campaign|
-      campaign.place.decrement! :active_campaigns_count
+      campaign.place.increment! :active_campaigns_count
     end
   end
 

@@ -26,10 +26,5 @@ describe BannersController do
     it "recognizes and generates #update" do
       { :put => "/banners/1" }.should route_to(:controller => "banners", :action => "update", :id => "1")
     end
-
-    it "recognizes and generates #destroy" do
-      { :delete => "/banners/1" }.should route_to(:controller => "banners", :action => "destroy", :id => "1")
-    end
-
   end
 end
