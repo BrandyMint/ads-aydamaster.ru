@@ -10,6 +10,7 @@ class Campaign < ActiveRecord::Base
 
   scope :active, where(:state=>'active')
   scope :live, where("state <> 'archived'")
+  scope :expired, live.where("start_date>current_date or (start_date=current_date and start_time>=current_time)")
 
   validates_presence_of :place, :banner, :start_date, :user
 
