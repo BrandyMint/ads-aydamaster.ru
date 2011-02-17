@@ -1,4 +1,5 @@
 class ClickLogEntry < ActiveRecord::Base
+  extend CounterSummator
 end
 
 # == Schema Information
