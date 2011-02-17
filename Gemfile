@@ -73,6 +73,8 @@ gem "loop_dance"
 
 group :test, :development do 
   gem "ruby-debug"
+  gem "rb-inotify"
+  gem "launchy"
   gem "rcov"
   gem "rspec"
   gem "rspec-rails"

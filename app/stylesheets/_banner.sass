@@ -1,26 +1,53 @@
-.b-banner
-  width: 322px
-  height: 90px
-  padding: 10px
-  margin: 5px
-  +border-radius(5px)
+$image_border: 1px
+$banner_image_width: 120px + $image_border*2
+$banner_info_width: 180px
+$banner_states_width: 100px
+$banner_height: 90px
+$b-banner_width: $banner_image_width + $banner_info_width + 22px + $image_border*2 + $image_border*2
+
+.b-full-banner
   float: left
-  //background: #eee
-  +linear-gradient(color-stops(#eee, #ccc))
+  /* border: 1px dashed green
+  width: 2px + $b-banner_width + 30px + $banner_states_width
+  height: 120px
+  margin: 0px 15px 25px 0px
+  .banner_states
+    float: left
+    padding: 0px 0 0 10px
+    width: $banner_states_width
+    height: 120px
+
+a.b-banner
   display: block
+  width: $b-banner_width
+  height: 100px
+  float: left
+  padding: 15px 0px 15px 15px
+  +border-radius(5px)
+  +gradient-bg(#eee, 5)
+  border: 1px solid #ccc
+  display: block
+  text-decoration: none
   .banner_image
     overflow: hidden
     text-align: center
-    vertical-align: middle
-    background-color: #333
+    +gradient-bg(#333, 10)
     float: left
-    width: 120px
-    height: 90px
-    border: 1px dotted #999
+    width: $banner_image_width
+    height: 90px + $image_border * 2
+    line-height: 90px + $image_border*2
+    border: $image_border solid #999
+    position: relative
+    img
+      position: absolute
+      top: 0
+      left: 0
+      border: $image_border solid #eee
+      vertical-align: middle
   .banner_info
     float: left
-    padding: 5px 10px
-    width: 180px
+    padding: 5px 5px 5px 15px
+    width: $banner_info_width
     .banner_name
       color: #333
       display: block
@@ -29,10 +56,15 @@
       line-height: 125%
       margin-bottom: 5px
     .banner_format
-      /* color: #125F15
       font-size: 12px
+      em
+        color: #125F15
+        font-weight: bold
     .banner_details
       padding-top: 10px
       color: gray
       font-size: 12px
+  &:hover
+    +gradient-bg(#fff, 5)
+    
 

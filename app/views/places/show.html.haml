@@ -1,5 +1,5 @@
 %h1
-  = "Площадка &#8470;#{@place.uid} &laquo;#{@website}/#{@place.name}&raquo;".html_safe
+  = "Площадка &#8470;#{@place.uid} &laquo;#{@place.name}&raquo;".html_safe
 = state_actions(@place)
 
 .column_left
@@ -10,11 +10,11 @@
   %h2
     Код для вставки в html-страницу
   %p
-    Вставьте этот код сразу после открывающего тэга
+    Вставьте этот код прямо перед закрывающим тэгом
     %em
       %code
         :escaped
-          <head>
+          </head>
   %pre.aydabanner_code
     %code.language-js
       = "<script type=\"text/javascript\" src=\"http://rotator.aydamaster.ru/rotator.js\"></script>"

@@ -20,6 +20,7 @@ nbproject
 TAGS
 dump
 public/stylesheets/compiled
+public/stylesheets
 .DS_Store
 config/database.yml
 GPATH

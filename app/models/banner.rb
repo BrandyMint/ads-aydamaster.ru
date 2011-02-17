@@ -15,6 +15,7 @@ class Banner < ActiveRecord::Base
 
   has_attached_file :banner, :styles => {
     :thumb => ["120x90>", :png],
+    :cropped => ["120x90#", :png],
     :mini => ["80x40>", :png],
   }
   
@@ -60,7 +61,7 @@ class Banner < ActiveRecord::Base
   end
 
   def labeled_format
-    "#{'flash ' if is_flash?}#{format.geometry}"
+    "#{format.geometry}#{' <em>flash</em>' if is_flash?}".html_safe
   end
 
   def set_name

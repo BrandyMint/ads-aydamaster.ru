@@ -11,6 +11,15 @@ Aydamaster::Application.configure do
 
   config.action_mailer.default_url_options = { :host => `hostname` }
 
+  if `hostname`=~/dapi/
+    config.action_controller.asset_host = Proc.new { |source|
+      if source.starts_with?('/system')
+        "http://aydamaster.ru"
+      else
+        nil
+      end
+    }
+  end
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true

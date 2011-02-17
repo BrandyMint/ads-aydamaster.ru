@@ -3,8 +3,6 @@
     - campaigns.each do |campaign|
       %li
         = render 'banners/banner_block', :banner => campaign.banner, :campaign => campaign
-        .campaign_state
-          = state_actions(campaign)
         .clear
 
   = link_to 'New Campaign', new_campaign_path

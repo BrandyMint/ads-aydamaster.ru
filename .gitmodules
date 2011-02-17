@@ -1,0 +1,3 @@
+[submodule "app/stylesheets/ss"]
+	path = app/stylesheets/ss
+	url = git://github.com/dapi/success-sasses.git

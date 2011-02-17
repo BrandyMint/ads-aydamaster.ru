@@ -18,21 +18,21 @@ class BannersController < ApplicationController
     @banner = Banner.find(params[:id])
     @banner.activate if @banner.can_activate?
 
-    redirect_to banner_path(@banner)
+    redirect_to :back # banner_path(@banner)
   end
 
   def pause
     @banner = Banner.find(params[:id])
     @banner.pause if @banner.can_pause?
 
-    redirect_to banner_path(@banner)
+    redirect_to :back # banner_path(@banner)
   end
 
   def archive
     @banner = Banner.find(params[:id])
     @banner.archive
 
-    redirect_to banner_path(@banner)
+    redirect_to :back # banner_path(@banner)
   end
 
   protected

@@ -1,25 +1,25 @@
 -# = link_to campaign, :class=>'campaign_link' do 
 
-.b-banner
-  .banner_image
-    = link_to banner do
-      = image_tag( banner.banner.url(:thumb) )
-  .banner_info
-    .banner_name
-      = link_to banner do
+.b-full-banner
+  = link_to banner, :class=>'b-banner' do
+    .banner_image= image_tag( banner.banner.url(:cropped) )
+    .banner_info
+      .banner_name
         = banner.name
-    .banner_format= banner.labeled_format
-    .banner_details
-      - c = banner.campaigns.live
-      - if c.present?
-        - if defined?(campaign) and c.count == 1 and c.first == campaign
-          Участвует только в этой кампании
+      .banner_format= banner.labeled_format
+      .banner_details
+        - c = banner.campaigns.live
+        - if c.present?
+          - if defined?(campaign) and c.count == 1 and c.first == campaign
+            Участвует только в этой кампании
+          - else
+            Участвует в кампаниях:
+            = c.count
         - else
-          Участвует в кампаниях:
-          = c.count
-      - else
-        В каманиях не участвует
-
+          В каманиях не участвует
+  .banner_states
+    = state_actions(defined?(campaign) ? campaign : banner)
+  .clear
 -#       %tr
 -#         %td.banner_image
 -#           = link_to image_tag( banner.banner.url(:mini) ), banner
