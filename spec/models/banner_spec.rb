@@ -4,6 +4,7 @@ describe Banner do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
+
 # == Schema Information
 #
 # Table name: banners
@@ -22,5 +23,9 @@ end
 #  banner_content_type :string(255)
 #  banner_file_size    :integer
 #  banner_updated_at   :datetime
+#  click_count         :integer         default(0)
+#  view_count          :integer         default(0)
+#  last_viewed_at      :datetime
+#  last_clicked_at     :datetime
 #
 

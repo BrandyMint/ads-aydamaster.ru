@@ -66,23 +66,29 @@ class Campaign < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: campaigns
 #
-#  id             :integer         not null, primary key
-#  place_id       :integer         not null
-#  banner_id      :integer         not null
-#  state          :string(255)     not null
-#  start_date     :date            not null
-#  stop_date      :date
-#  start_time     :time            default(Sat Jan 01 00:00:00 UTC 2000), not null
-#  stop_time      :time            default(Sat Jan 01 23:59:00 UTC 2000), not null
-#  created_at     :datetime
-#  updated_at     :datetime
-#  user_id        :integer         not null
-#  last_viewed_at :datetime        default(Thu Feb 10 07:34:26 UTC 2011), not null
-#  started_at     :datetime
-#  stopped_at     :datetime
+#  id              :integer         not null, primary key
+#  place_id        :integer         not null
+#  banner_id       :integer         not null
+#  state           :string(255)     not null
+#  start_date      :date            not null
+#  stop_date       :date
+#  start_time      :time            default(Sat Jan 01 00:00:00 UTC 2000), not null
+#  stop_time       :time            default(Sat Jan 01 23:59:00 UTC 2000), not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#  user_id         :integer         not null
+#  last_viewed_at  :datetime        default(Thu Feb 10 07:34:26 UTC 2011), not null
+#  started_at      :datetime
+#  stopped_at      :datetime
+#  clicks_count    :integer         default(0)
+#  clicks_limit    :integer         default(0)
+#  views_count     :integer         default(0)
+#  views_limit     :integer         default(0)
+#  last_clicked_at :datetime
 #
 
