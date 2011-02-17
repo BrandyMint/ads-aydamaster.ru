@@ -15,6 +15,9 @@ class Campaign < ActiveRecord::Base
 
   validates_presence_of :place, :banner, :start_date, :user
 
+  after_save :check_limits
+
+
   has_states do
     after_transition :on => :activate do |campaign|
       campaign.update_attribute(:started_at, Time.now) unless campaign.started_at
@@ -43,13 +46,25 @@ class Campaign < ActiveRecord::Base
     end
   end
 
+
   def self.new(attributes = nil)
     attributes[:start_date] = Date.today
     attributes[:last_viewed_at] = Time.now
     super attributes
   end
 
+  def limits_exceed?
+    (clicks_limit and clicks_count>=clicks_limit) or (views_limit and views_count>=views_limit)
+  end
+
+  private
+
+  def check_limits
+    archive if limits_exceed?
+  end
+
 end
+
 
 # == Schema Information
 #
@@ -67,5 +82,7 @@ end
 #  updated_at     :datetime
 #  user_id        :integer         not null
 #  last_viewed_at :datetime        default(Thu Feb 10 07:34:26 UTC 2011), not null
+#  started_at     :datetime
+#  stopped_at     :datetime
 #
 

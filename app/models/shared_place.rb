@@ -19,3 +19,16 @@ class SharedPlace < ActiveRecord::Base
     message.deliver
   end
 end
+
+# == Schema Information
+#
+# Table name: shared_places
+#
+#  id         :integer         not null, primary key
+#  place_id   :integer
+#  guest_id   :integer
+#  email      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

@@ -2,6 +2,10 @@
 class Stat < ActiveRecord::Base
   # combined_key = %w[place_id campaign_id banner_id date time]
 
+  belongs_to :campaign
+  belongs_to :banner
+  belongs_to :place
+
   class << self
 
     def interval
@@ -25,6 +29,19 @@ class Stat < ActiveRecord::Base
       Setting.counters_summarized_at = truncated_time
     end
 
+  end
+
+  after_save :update_parent_counters
+
+  def update_campaign
+    if campaign.present?
+      campaign.increment! :views_count, views_count - changed_attributes["views_count"].to-i
+      campaign.increment! :clicks_count, clicks_count - changed_attributes["clicks_count"].to-i
+    end
+    if banner.present?
+      banner.increment! :views_count, views_count - changed_attributes["views_count"].to-i
+      banner.increment! :clicks_count, clicks_count - changed_attributes["clicks_count"].to-i
+    end
   end
   
 end

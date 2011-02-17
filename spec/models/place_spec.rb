@@ -55,18 +55,20 @@ describe Place do
 end
 
 
+
 # == Schema Information
 #
 # Table name: places
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  website_id :integer
-#  format_id  :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  state      :string(255)     not null
-#  domains    :text
-#  user_id    :integer         not null
+#  id                     :integer         not null, primary key
+#  name                   :string(255)
+#  website_id             :integer
+#  format_id              :integer
+#  created_at             :datetime
+#  updated_at             :datetime
+#  state                  :string(255)     not null
+#  domains                :text
+#  user_id                :integer         not null
+#  active_campaigns_count :integer         default(0), not null
 #
 

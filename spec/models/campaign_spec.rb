@@ -77,6 +77,7 @@ describe Campaign do
   end
 end
 
+
 # == Schema Information
 #
 # Table name: campaigns
@@ -93,5 +94,7 @@ end
 #  updated_at     :datetime
 #  user_id        :integer         not null
 #  last_viewed_at :datetime        default(Thu Feb 10 07:34:26 UTC 2011), not null
+#  started_at     :datetime
+#  stopped_at     :datetime
 #
 
