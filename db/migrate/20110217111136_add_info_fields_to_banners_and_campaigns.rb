@@ -13,7 +13,7 @@ class AddInfoFieldsToBannersAndCampaigns < ActiveRecord::Migration
     remove_column :banners, :last_clicked_at
     remove_column :banners, :last_viewed_at
     remove_column :banners, :view_count
-    remove_column :banners, :view_count
+    remove_column :banners, :click_count
     remove_column :campaigns, :last_clicked_at
   end
 end
