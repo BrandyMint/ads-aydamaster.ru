@@ -18,8 +18,8 @@ ru:
     place: Площадка
     start_date: Дата начала
     stop_date: Дата окончания
-    max_click_count: Максимальное число кликов
-    max_view_count: Максимальное число показов
+    clicks_limit: Максимальное число кликов
+    views_limit: Максимальное число показов
   flash:
     actions:
       create:
