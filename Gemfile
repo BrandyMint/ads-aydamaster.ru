@@ -71,7 +71,8 @@ gem "russian", :git => "https://github.com/dima4p/russian.git"
 
 gem "loop_dance"
 
-group :test, :development do 
+group :test, :development do
+  gem "timecop"
   gem "ruby-debug"
   gem "rb-inotify"
   gem "launchy"

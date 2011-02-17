@@ -26,4 +26,9 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.include Devise::TestHelpers, :type => :controller
+  
+  config.after(:each) do
+    Timecop.return
+  end
+  
 end

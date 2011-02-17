@@ -9,7 +9,10 @@ class Stat < ActiveRecord::Base
     end
 
     def truncated_time
-      Time.now
+      a = Time.now.to_a
+      a[0]=0
+      a[1]=a[1] - a[1] % (interval/60)
+      Time.local *a
     end
 
     def summarize_all
