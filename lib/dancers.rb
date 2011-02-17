@@ -5,4 +5,9 @@ class StatsCollector < LoopDance::Dancer
     # TODO: add stats collection
   end
 
+  every 30.minutes do
+    Campaign.expired &:archive
+    Campaign.ready_to_start &:activate
+  end
+
 end
