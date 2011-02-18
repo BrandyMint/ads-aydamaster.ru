@@ -17,14 +17,16 @@ $padding = 40px
       a
         padding: 0 0 5px 0
         // +link-colors(white, $lighten_color)
-        +link-colors($topper_white)
+        +link-colors(#ddd)
         +underline_hover
         +text-shadow(black)
     #slogan
       // color: $lighten_color
-      color: $topper_white
+      color: $gray_on_black_color
       font-weight: normal
-      font-size: 15px
+      // letter-spacing: 0.03em
+      font-family: sans
+      font-size: 14px
       // +text-shadow($darken_color)
   #login
     float: right
@@ -42,7 +44,6 @@ $padding = 40px
         // color: $lite_color
         color: $topper_white
   a
-    //  +link-colors($lighten_color, white)
-    +link-colors($topper_white)
+    +link-colors($topper_white, white)
 
     +underline_hover

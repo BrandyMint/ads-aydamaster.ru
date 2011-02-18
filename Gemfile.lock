@@ -99,7 +99,7 @@ GEM
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
     linecache (0.43)
-    loop_dance (0.4.6)
+    loop_dance (0.5.3)
       activesupport (>= 3.0)
       daemon_controller (>= 0.2.5)
       i18n
@@ -210,7 +210,7 @@ DEPENDENCIES
   inherited_resources (~> 1.2.1)
   jquery-rails (>= 0.2.6)
   launchy
-  loop_dance
+  loop_dance (>= 0.5.3)
   nifty-generators
   oa-core
   paperclip

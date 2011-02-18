@@ -4,13 +4,20 @@
 #
 # Requirements:
 #
-# gem 'ruby-imagespec"
-# Gnash flash media player (http://www.gnu.org/s/gnash/)
+# 1. gem 'ruby-imagespec"
+# 2. Gnash flash media player (http://www.gnu.org/s/gnash/)
+#
+# Install using this instruction: http://techblog.floorplanner.com/2010/11/02/server-side-rendering-of-swf-images-using-gnash/
+#
+# wget http://ftp.gnu.org/pub/gnu/gnash/0.8.8/gnash-0.8.8.tar.gz
+# ./configure --enable-gui=dump --enable-renderer=agg
+# make
+# sudo make install
 #
 #
 # Author: Danil Pismenny (danil@pismenny.ru)
 #
-# github.com/dapi/
+# htp://github.com/dapi/
 #
 
 require 'image_spec'
