@@ -1,0 +1,44 @@
+$element_width = 150px
+#header
+  // padding-top: 30px
+  /* position: relative
+  /* height: 20px
+  background-color: $body_bg_color
+  ul#main_menu
+    +border-top-radius($content_radius*1.5)
+    background-color: $menu_bg_color
+    width: (150px+20px)*3 + 3px
+    margin: 0
+    font-size: 18px
+    +horizontal-list
+    li
+      margin: 0
+      width: 150px
+      padding: 15px 10px 10px 10px
+      text-align: center
+      // #header ul#main_menu li:first-child, #header ul#main_menu li.first {
+      border-right: 1px solid $body_bg_color
+      border-bottom: 1px solid darken($menu_bg_color,5)
+      &:first-child, &:last-child
+        padding-right: 10px
+        padding-left: 10px
+      a
+        display: block
+        color: $menu_color
+        +underline_hover
+        &:hover
+          color: $hover_color
+      &.active, &.choosen
+        +border-top-radius($content_radius)
+        background-color: $container_bg_color
+        border-bottom: 1px solid $container_bg_color
+        a
+          // color: $shadow_color
+          /* color: $shadow_color
+          color: $white_color
+      /* &.ready
+      /*   a
+      /*    //  +text-shadow($shadow_color, 0)
+
+        
+      

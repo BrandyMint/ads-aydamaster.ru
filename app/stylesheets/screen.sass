@@ -1,14 +1,23 @@
 // This import applies a global reset to any page that imports this stylesheet.
 //@import blueprint/reset
 
-$page_width: 950px
+$page_width: 1150px
 
-$form-bg: #eee
+// $form-bg: #eee
+
 $primary_color: #4b7399
-$link_color: $primary_color
+$white_color: lighten($primary_color, 50)
+$text_color: $white_color
+$link_color: $white_color
+$hover_color: white
+$shadow_color: black
+//darken($primary_color, 50)
+$topper_white: #eee
 
 // Цвет фона
-$bg_color: $link_color
+$body_bg_color: #222
+// $primary_color
+$container_bg_color: lighten($primary_color,5)
 
 $darken_color: darken($primary_color, 20)
 
@@ -19,8 +28,16 @@ $lite_color: lighten($primary_color, 20)
 $border_color: darken($primary_color, 10)
 
 // Цвет заголовков
-$h_color: darken($primary_color, 10)
+$h_color: $white_color
 $red_color: red
+
+$content_radius: 5px
+
+// Main Menu
+// $menu_bg_color: darken($primary_color,10)
+$menu_bg_color: #333
+$menu_color: #bbb
+
 
 
 =underline_hover
@@ -59,25 +76,25 @@ $red_color: red
 // @import success-sasses/buttons/all
 // @import ss/mixins/sass_tools
 // @import success-sasses/simple_form/simple_form
-@import nifty
-@import topper
+@import layout
 @import state_buttons
 @import banner
+
+a
+  img
+    border: none
+  +link-colors($link_color, $hover_color)
+
+.clear
+  clear: both
+  height: 0
+  overflow: hidden
 
 
 // @import "compass/css3/background-clip"
 h2,h1
   color: $h_color
   // +text-shadow
-
-a
-  +link-colors($link_color, $darken_color)
-
-// @import blueprint
-
-//@import partials/form
-
-// @import flutie/tables
 
 
 table

@@ -1,78 +1,48 @@
+$padding = 40px
 #topper
-  width: $page_width
+  width: $page_width - $padding*2
   position: relative 
   margin: 0 auto
-  padding: 10px 40px 20px 40px
+  padding: 25px $padding 35px $padding
 
-
-#first_row
-  position: relative 
-
+  #logo
+    float: left
+    paddin-left: 40px
+    h1
+      font-family: georgia,serif
+      font-size: 36px
+      font-style: italic
+      padding: 0 0 5px 0
+      margin: 0
+      a
+        padding: 0 0 5px 0
+        // +link-colors(white, $lighten_color)
+        +link-colors($topper_white)
+        +underline_hover
+        +text-shadow(black)
+    #slogan
+      // color: $lighten_color
+      color: $topper_white
+      font-weight: normal
+      font-size: 15px
+      // +text-shadow($darken_color)
   #login
-    position: absolute
-    bottom: 0px
-    right: 0px
+    float: right
+    padding-top: 10px
     #login_menu
       padding-left: 10px
       float: left
     ul
-      color: $lighten_color
+      // color: $lighten_color
+      color: $topper_white
+
       +horizontal-list
       &.email
         padding-bottom: 5px
-        color: $lite_color
-  h1#logo
-    float: left
-    font-family: georgia,serif
-    font-size: 36px
-    font-style: italic
-    padding: 0 0 5px 0
-    margin: 0
-    a
-      padding: 0 0 5px 0
-      +link-colors(white, $lighten_color)
-      +underline_hover
-      +text-shadow($darken_color)
-    #slogan
-      color: $lighten_color
-      font-weight: normal
-      font-size: 15px
-      +text-shadow($darken_color)
+        // color: $lite_color
+        color: $topper_white
   a
-    +link-colors($lighten_color, white)
+    //  +link-colors($lighten_color, white)
+    +link-colors($topper_white)
+
     +underline_hover
-
-
-#second_row
-  padding-top: 30px
-  position: relative
-  height: 20px
-  ul#main_menu
-    position: absolute
-    bottom: 0
-    left: -10px
-    +horizontal-list
-    color: white
-    font-size: 18px
-    a
-      display: block
-      color: $lighten_color
-      padding: 5px 10px
-      // +underline_hover
-      text-decoration: none
-      &:hover
-        text-decoration: underline
-    li
-      &.active
-        background-color: white
-        +border-radius(5px)
-        a
-          color: $primary_color
-
-      &.choosen
-        a
-          color: $primary_color
-        background-color: white
-        +border-radius(5px)
-        
-      

@@ -49,7 +49,7 @@ module ApplicationHelper
       :chosen => proc { content_tag :li, :class=>'chosen' do
           link_to( label, url )
         end },
-      :inactive => proc { content_tag :li do
+      :inactive => proc { content_tag :li, :class=>'ready' do
           link_to( label, url )
         end }
       )
