@@ -22,7 +22,7 @@ class Banner < ActiveRecord::Base
     },
     :processors => lambda { |a| a.flash? ? [ :flash_thumbnail ] : [ :thumbnail ] }
     )
-  
+
   validates_attachment_presence :banner
   validates_attachment_size :banner, :less_than => 200.kilobytes
   validates_attachment_content_type( :banner,
@@ -32,7 +32,7 @@ class Banner < ActiveRecord::Base
   # def before_post_process
   #   debugger
   # end
-  
+
   # validate do |banner|
   #   # Удаляем ошибочки создания :preview для флешек
   #   if flash?
@@ -43,11 +43,11 @@ class Banner < ActiveRecord::Base
   # end
 
   has_states do
-    
+
     after_transition :on => :archive do |banner|
       banner.campaigns.each &:archive
     end
-    
+
   end
 
   before_save :set_format

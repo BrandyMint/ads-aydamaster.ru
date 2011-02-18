@@ -1,7 +1,9 @@
 class AddUserToPlace < ActiveRecord::Migration
   def self.up
     add_column :places, :user_id, :integer
-    Place.update_all(:user_id => User.first.id)
+    if user = User.first
+      Place.update_all(:user_id => user.id)
+    end
     change_column :places, :user_id, :integer, :null=>false
   end
 
