@@ -1,13 +1,13 @@
-$image_border1: 1px
-$image_border_color1: #888
-$image_border2: 1px
+$image_border1: 10px
+$image_border_color1: lighten($selected_bg_color,5)
+$image_border2: 0px
 $image_border_color2: #ddd
 $banner_image_width: 120px + $image_border2*2
 $banner_info_width: 180px
 $banner_states_width: 100px
 $banner_height: 90px
-$b-banner_width: $banner_image_width + $banner_info_width + 22px + $image_border1*2 + $image_border2*2
-$banner_block_height: 90px + ($image_border1+$image_border2)*2
+$b-banner_width: $banner_image_width + $banner_info_width + 27px + $image_border1*1.2*2
+$banner_block_height: 90px + ($image_border1*1.2)*2
 
 .b-full-banner
   float: left
@@ -15,6 +15,7 @@ $banner_block_height: 90px + ($image_border1+$image_border2)*2
   width: 2px + $b-banner_width + 30px + $banner_states_width
   height: $banner_block_height + 30px
   margin: 0px 15px 25px 0px
+
   .banner_states
     float: left
     padding: 0px 0 0 10px
@@ -27,34 +28,34 @@ a.b-banner
   height: $banner_block_height
   float: left
   padding: 15px 0px 15px 15px
-  +border-radius(5px)
-  +gradient-bg(#eee, 5)
-  border: 1px solid #ccc
+  /* +border-radius(5px)
+  /* +gradient-bg(#eee, 5)
+  // border: 1px solid #ccc
   display: block
   text-decoration: none
-  color: black
   .banner_image
     overflow: hidden
     text-align: center
-    +gradient-bg(#333, 10)
+    /* +gradient-bg(#333, 10)
     float: left
     width: $banner_image_width
     height: 90px + $image_border2 * 2
     line-height: 90px + $image_border2*2
     border: $image_border1 solid  $image_border_color1
+    border-right-width: $image_border1*1.2
+    border-left-width: $image_border1*1.2
     position: relative
     img
       position: absolute
       top: 0
       left: 0
-      border: $image_border2 solid $image_border_color2
+      // border: $image_border2 solid $image_border_color2
       vertical-align: middle
   .banner_info
     float: left
-    padding: 5px 5px 5px 15px
+    padding: 5px 5px 5px 20px
     width: $banner_info_width
     .banner_name
-      color: #333
       display: block
       font-size: 16px
       font-weight: bold
@@ -63,13 +64,16 @@ a.b-banner
     .banner_format
       font-size: 12px
       em
-        color: #125F15
+        // color: #125F15
         font-weight: bold
     .banner_details
       padding-top: 10px
-      color: gray
+      // color: gray
       font-size: 12px
   &:hover
-    +gradient-bg(#fff, 5)
+    background-color: $selected_bg_color
+    .banner_image
+      border-color: lighten($image_border_color1,10)
+    /* +gradient-bg(#fff, 5)
     
 

@@ -7,6 +7,7 @@ $element_width = 150px
   ul#main_menu
     +border-top-radius($content_radius*1.5)
     background-color: $menu_bg_color
+    +gradient-bg($menu_bg_color, 0, 5)
     width: (150px+20px)*3 + 3px
     margin: 0
     font-size: 18px
@@ -18,7 +19,6 @@ $element_width = 150px
       text-align: center
       // #header ul#main_menu li:first-child, #header ul#main_menu li.first {
       border-right: 1px solid $body_bg_color
-      border-bottom: 1px solid darken($menu_bg_color,5)
       &:first-child, &:last-child
         padding-right: 10px
         padding-left: 10px
@@ -31,11 +31,15 @@ $element_width = 150px
       &.active, &.choosen
         +border-top-radius($content_radius)
         background-color: $container_bg_color
-        border-bottom: 1px solid $container_bg_color
+        +gradient-bg($container_bg_color, 5, 0)
         a
           // color: $shadow_color
           /* color: $shadow_color
-          color: $white_color
+          // color: #123
+          color: $lighten_color
+          font-weight: bold
+          &:hover
+            color: $hover_color
       /* &.ready
       /*   a
       /*    //  +text-shadow($shadow_color, 0)

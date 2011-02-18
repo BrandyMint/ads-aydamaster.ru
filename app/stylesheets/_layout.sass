@@ -1,5 +1,6 @@
 body
   background-color: $body_bg_color
+  +gradient-bg($body_bg_color, 0, 5)
   // +gradient-bg($body_bg_color, -5)
   color: $text_color
   font:
@@ -21,7 +22,14 @@ body
   +border-bottom-right-radius($content_radius)
   +border-bottom-left-radius($content_radius)
   background-color: $container_bg_color
+  +gradient-bg($container_bg_color, 0, 5)
 
 #bottomer
   height: 300px
-
+  padding-top: 30px
+  width: $page_width
+  margin: 0 auto
+  color: #999
+  p
+    padding-right: 40px
+  
