@@ -61,7 +61,8 @@ gem "cancan"
 gem "jquery-rails", ">= 0.2.6"
 # gem "best_in_place", :git => "https://github.com/bernat/best_in_place.git"
 gem "oa-core"
-gem "devise", ">=1.1.6" #:git => "git://github.com/plataformatec/devise.git"
+gem "devise", :git => "git://github.com/plataformatec/devise.git"
+#gem "devise", ">=1.1.6" #:git => "git://github.com/plataformatec/devise.git"
 
 gem 'hoptoad_notifier'
 
