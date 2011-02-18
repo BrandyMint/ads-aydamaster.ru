@@ -1,0 +1,21 @@
+ru:
+  simple_form:
+    labels:
+      user:
+        remember_me: Запомнить меня на долго
+        # username: 'User name'
+        # password: 'Password'
+    # hints:
+    #   user:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    placeholders:
+      user:
+        username: 'Your username'
+        password: '****'
+  models:
+    user: "Пользователь"
+  helpers:
+    submit:
+      user:
+        create: "Войти"

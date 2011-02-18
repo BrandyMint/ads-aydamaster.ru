@@ -12,6 +12,8 @@ ru:
       activate: включить
       pause: на паузу
   attributes:
+    email: эл.адрес
+    password: пароль
     banner: Рекламный баннер
     link: Ссылка для клика
     name: Название
@@ -20,6 +22,7 @@ ru:
     stop_date: Дата окончания
     clicks_limit: Максимальное число кликов
     views_limit: Максимальное число показов
+
   flash:
     actions:
       create:

@@ -1,0 +1,278 @@
+$default_label_width        : 150px
+$field_width        : 200px
+$fieldset_width     : 300px
+
+// Source: railscasts.com
+
+=simple_form($label_width: 150px)
+  margin-bottom: 30px
+  label
+    float: left
+    width: $label_width
+    text-align: right
+    margin: 2px 10px
+  div
+    &.input
+      margin-bottom: 10px
+    &.boolean
+      margin-left: $label_width + 20px
+  input.text, input.string, input.password, textarea, select
+    width: $field_width
+  input[type='submit']
+    margin-left: $label_width + 20px
+  div.boolean label
+    float: none
+    margin: 0
+  label.collection_radio
+    float: none
+    margin: 0
+    margin-right: 10px
+    margin-left: 2px
+  .error
+    clear: left
+    margin-left: $label_width + 20px
+    font-size: 12px
+    color: #d00
+    display: block
+  .hint
+    clear: left
+    margin-left: $label_width + 20px
+    font-size: 12px
+    color: #555
+    display: block
+    font-style: italic
+  abbr
+    border: none
+    color: red
+    padding-right: 5px
+      
+  /* .input
+  /*   label
+  /*     display: block
+  /*     width: $label_width
+      
+
+.simple_form
+  +simple_form
+
+/* =simple_form2
+/*   fieldset
+/*     border: none
+/*     margin-bottom: 20px
+/*     margin-left: 0
+/*     padding: 20px 10px 10px 20px
+/*     &.buttons
+/*       padding: 0px 20px 10px 20px
+/*     &.inputs
+/*     h2
+/*       margin: 0 0 12px 0
+
+/*     .act input
+/*       margin-bottom: 11px
+/*   /* #content fieldset
+/*   /*   h3
+/*   /*     border-top: 2px solid #ddd
+/*   /*     padding-top: 12px
+/*   /*     margin-top: 10px
+/*   /*     clear: both
+/*   /*     color: #aaa
+/*   /*     &.first
+/*   /*       border-top: none
+
+/*   div
+/*     padding: 0px
+/*     &.string, &.boolean, &.date, &.select, &.text, &.password, &.radio, &.email
+/*       padding-left: 10px
+/*       padding-right: 10px
+/*       padding-bottom: 10px
+/*     &.boolean, &.check, &.radio
+/*       input
+/*         width: 13px
+/*         display: block
+/*         float: left
+/*     label
+/*       display: block
+/*       &.collection_check_boxes, &.collection_radio
+/*         display: inline
+/*         float: left
+/*         margin: 0px 12px 0px 0px
+/*         line-height: 13px
+/*       &.checkboxes, &.radio, &.boolean
+/*         // float: none
+/*         display: block
+/*         // font-weight: bold
+/*         clear: both
+/*       &.string, &.date, &.select, &.text, &.password, &.email 
+/*         // float: none
+/*         clear: both
+/*         // font-weight: bold
+
+/*   //----------------------------------------------------
+/*   // Labels
+/*   //----------------------------------------------------
+/*   label
+/*     float: left
+/*     width: $label_width
+/*     cursor: pointer
+/*     display: block
+/*     font-size: 14px
+/*     /* color: $label
+/*     margin-top: 6px
+/*     +letterpress
+/*     &.select
+/*       // width: auto
+/*     &.radio
+/*       display: block
+/*       clear: both
+/*       float: none
+/*       margin-bottom: 10px
+/*     &.required
+/*       font-weight: bold
+
+/*     small
+/*       // color: $label_small
+
+/*   //----------------------------------------------------
+/*   // Inputs
+/*   //----------------------------------------------------
+/*   input, textarea, select
+/*     // background: $input_bg
+/*     // border: 1px solid $input_border
+/*     // +border-radius(2px)
+/*     font-family: arial, helvetica, verdana, "Lucida Grande", "Lucida Sans Unicode"
+/*     font-size: 16px
+/*     font-weight: normal
+/*     width: $field_width
+
+/*   input, textarea
+/*     padding: 5px 0px
+/*     text-indent: 5px
+/*     // float: left
+
+/*   select
+/*     +border-radius(2px)
+/*     font-size: 14px
+/*     padding: 5px
+
+/*   .checks, .boolean, .radio, .check
+/*     input
+/*       width: 13px
+/*       margin: 0 5px 7px 0
+/*     input, label
+/*       display: inline
+/*     label.block
+/*       display: block
+
+/*   label
+/*     &.checks, &.boolean, &.radio, &.check
+/*       font-weight: normal
+/*       margin-top: 0px
+/*       margin-right: 12px
+/*       display: inline
+/*       // float: none
+/*       line-height: 18px
+/*     &.collection_radio
+/*       margin-top: 0px
+/*       font-weight: normal
+/*     width: $label_width
+/*   //---------------------------------------------------
+/*   // Error Messages
+/*   //---------------------------------------------------
+/*   #error_message
+/*     font-size: 14px
+/*     color: #f00
+/*     font-weight: bold
+/*   fieldset .fieldWithErrors
+/*     margin: 0px
+/*     width: 100%
+/*     padding: 0 0 2px 0
+/*     select
+/*       border-color: #f00
+/*       background-color: #fcc
+/*     label
+/*       color: #666
+/*     input, textarea
+/*       background-color: #ffcccc
+/*       border-color: red
+
+/*   span.error
+/*     font-size: 13px
+/*     color: red
+/*     display: block
+/*     clear: both
+/*     margin-bottom: 10px
+/*     padding-left: $label_width + 3px
+/*     font-weight: bold
+
+/*   legend
+/*     color: $primary_color
+/*     text-align: right
+/*     font-style: italic
+
+/*   //----------------------------------------------------
+/*   // Hints
+/*   //----------------------------------------------------
+/*   span, small
+/*     &.hint
+/*       clear: both
+/*       display: block 
+/*       padding-left: $label_width + 3px
+/*       color: #777777
+/*       font-size: 12px
+/*       &.indent
+/*         text-indent: 20px
+/*         display: block
+
+
+/* // https://github.com/igorkasyanchuk/railsjazz.com/blob/fb7cc262bb60bf534927f25361fd8a0d77fac95b/app/stylesheets/_simple_form.sass
+/* .simple_form
+/*   label 
+/*     margin: 2px 0
+/*     display: block
+/*     color: #333
+/*     font-weight: bold
+/*     font-size: 14px
+/*     line-height: 19px
+
+/*   div.input
+/*     margin-bottom: 10px
+    
+/*   div.boolean 
+/*     label, input
+/*       vertical-align: middle
+  
+/*   div.boolean label, label.collection_radio 
+/*     margin: 0
+/*     display: inline
+
+/*   label.collection_radio 
+/*     margin-right: 10px
+/*     margin-left: 2px
+
+/*   .error 
+/*     font-size: 11px
+/*     color: #D00
+/*     display: block
+  
+/*   .hint
+/*     font-size: 11px
+/*     color: #555
+/*     display: block
+/*     font-style: italic
+
+/*   input.text, input.string, input.password, textarea, select
+/*     background: white
+/*     border: 1px solid #DDD
+/*     padding: 3px 4px
+/*     font-size: 12px
+/*     line-height: 14px
+/*     &:hover, &:focus
+/*       border: 1px solid #ccc
+
+/*   input.button
+/*     padding: 2px 4px
+
+/*   abbr
+/*     color: red
+/*     text-decoration: none
+/*     border-bottom: 0 none    
