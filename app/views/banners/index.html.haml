@@ -1,8 +1,7 @@
-%h1 Список баннеров
+%h1 Доступные баннера
 
 .banners
+  = render 'banner_block', :banner => nil
   - @banners.each do |banner|
     = render 'banner_block', :banner => banner
-
 .clear
-= link_to 'New Banner', new_banner_path

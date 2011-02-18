@@ -73,7 +73,9 @@ class Banner < ActiveRecord::Base
   end
 
   def labeled_format
-    "#{format.geometry}#{' <em>flash</em>' if flash?}".html_safe
+    if format.present?
+      "#{format.geometry}#{' <em>flash</em>' if flash?}".html_safe
+    end
   end
 
   def set_name
