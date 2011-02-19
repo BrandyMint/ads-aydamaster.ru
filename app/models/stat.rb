@@ -35,15 +35,15 @@ class Stat < ActiveRecord::Base
 
   def update_campaign
     if campaign.present?
-      campaign.increment! :views_count, views_count - changed_attributes["views_count"].to-i
-      campaign.increment! :clicks_count, clicks_count - changed_attributes["clicks_count"].to-i
+      campaign.increment! :views_count, views_count - changed_attributes["views_count"].to_i
+      campaign.increment! :clicks_count, clicks_count - changed_attributes["clicks_count"].to_i
     end
     if banner.present?
-      banner.increment! :views_count, views_count - changed_attributes["views_count"].to-i
-      banner.increment! :clicks_count, clicks_count - changed_attributes["clicks_count"].to-i
+      banner.increment! :views_count, views_count - changed_attributes["views_count"].to_i
+      banner.increment! :clicks_count, clicks_count - changed_attributes["clicks_count"].to_i
     end
   end
-  
+
 end
 
 # == Schema Information
