@@ -31,7 +31,7 @@ class Stat < ActiveRecord::Base
 
   end
 
-  after_save :update_parent_counters
+  after_save :update_campaign
 
   def update_campaign
     if campaign.present?

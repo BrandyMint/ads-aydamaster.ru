@@ -35,6 +35,12 @@ describe Stat do
     end
   end
 
+  it "calls update_campaign after save" do
+    stat = Stat.new
+    stat.should_receive(:update_campaign)
+    stat.run_callbacks(:save)
+  end
+
   describe ".summarize_all" do
     it "calls summarize_counters on ViewLogEntry and ClickLogEntry" do
       ViewLogEntry.should_receive(:summarize_counters){ 10 }
