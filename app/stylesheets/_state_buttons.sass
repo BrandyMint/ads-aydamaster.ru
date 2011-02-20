@@ -1,5 +1,5 @@
-$button_bg_color1 = #eee
-$button_bg_color2 = #ccc
+$button_bg_color1: #eee
+$button_bg_color2: #ccc
 // $button_border_color = #aaa
 .state_buttons
   clear: both
@@ -21,8 +21,8 @@ $button_bg_color2 = #ccc
     +linear-gradient(color-stops($button_bg_color1, $button_bg_color2),top)
     &:hover
       color: black
-      $c1 = darken($button_bg_color1,5)
-      $c2 = darken($button_bg_color2,5)
+      $c1: darken($button_bg_color1,5)
+      $c2: darken($button_bg_color2,5)
       +linear-gradient(color-stops($c1,$c2),top)
 
   div.state_button
