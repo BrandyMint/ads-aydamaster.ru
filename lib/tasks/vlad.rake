@@ -1,8 +1,9 @@
 if Rails.env.development?
-begin
-  require 'vlad'
-  Vlad.load(:app=>'passenger', :scm => "git") # :app => "passenger2", 
-rescue LoadError => e
-  puts "Unable to load Vlad #{e}."
-end
+  begin
+    require 'vlad'
+    Vlad.load(:app=>'passenger', :scm => :git)
+  rescue LoadError => e
+    puts "Unable to load Vlad #{e}."
+  end
+  
 end

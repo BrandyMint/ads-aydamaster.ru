@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 set :application, "aydamaster.ru"
-set :domain, "aydamaster.ru"
+set :domain, "wwwdata@aydamaster.ru"
 set :rails_env, "production"
 set :deploy_to, "/home/wwwdata/aydamaster.ru"
 # set :revision,   'develop'
 set :keep_releases,	3
-set :repository, 'ssh://dapi.orionet.ru/home/danil/code/aydamaster.ru/.git/'
+set :local_link, 'danil@dapi.orionet.ru:/home/danil/code/aydamaster.ru'
+
+#local_link='dapi.orionet.ru:/home/danil/code/aydamaster.ru'
+set :repository, 'ssh://danil@dapi.orionet.ru/home/danil/code/aydamaster.ru/.git/'
 
 set :web_command, "sudo apache2ctl"
 
@@ -13,18 +16,17 @@ set :web_command, "sudo apache2ctl"
 set :shared_paths, {
   'log'    => 'log',
   'system' => 'public/system',
+  'stylesheets' => 'public/stylesheets',
   'pids'   => 'tmp/pids',
   'bundle' => 'vendor/bundle'
 }
 
-local_link='dapi.orionet.ru:/home/danil/code/aydamaster.ru'
   
 namespace :vlad do
 
   desc "Full deployment cycle"
   task "deploy" => %w[
       vlad:update
-      vlad:migrate
       vlad:hoptoad
       vlad:cleanup
     ]
@@ -32,8 +34,9 @@ namespace :vlad do
       # vlad:web:reload
 
   remote_task :update do
-    Rake::Task['vlad:share_configs'].invoke
+    # Rake::Task['vlad:share_configs'].invoke
     Rake::Task['vlad:bundle'].invoke
+    Rake::Task['vlad:migrate'].invoke
   end
   
   desc "update gem's on the server"
@@ -41,10 +44,10 @@ namespace :vlad do
     run "gem update --system"
   end
   
-  desc "Share config files (database.yml and settings"
+  desc "Share config files (database.yml and settings)"
   remote_task :share_configs do
     puts "Share config files"
-    run "cd #{current_release}/config/; scp #{local_link}/config/database.yml ." #  ; scp -r #{local_link}/config/settings* .
+    # run "cd #{current_release}/config/; scp #{local_link}/config/database.yml ." #  ; scp -r #{local_link}/config/settings* .
   end
 
   desc "hoptoad integration"
@@ -52,8 +55,14 @@ namespace :vlad do
     puts "Exec hoptoad"
     run "cd #{current_release}; rake hoptoad:deploy RAILS_ENV=production TO=#{rails_env} REVISION=#{revision} USER=`whoami` REPO=#{repository}"
   end
+
+  desc "Execute compass"
+  remote_task :compass do
+    puts "Exec compass"
+    run "cd #{current_release}; compass compile -e production --force"
+  end
   
-  desc "Exec bundle --deployment"
+  desc "Execute bundle --deployment"
   remote_task :bundle do
     puts "Exec bundle"
     run "cd #{current_release}; bundle install --deployment --without development"
