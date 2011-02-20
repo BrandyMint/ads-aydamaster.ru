@@ -49,13 +49,14 @@ namespace :vlad do
 
   desc "hoptoad integration"
   remote_task :hoptoad do
-     run "pwd; cd #{current_release}; echo rake hoptoad:deploy TO=#{rails_env} REVISION=#{revision} USER=`whoami` REPO=#{repository}"
+    puts "Exec hoptoad"
+    run "cd #{current_release}; echo rake hoptoad:deploy TO=#{rails_env} REVISION=#{revision} USER=`whoami` REPO=#{repository}"
   end
   
   desc "Exec bundle --deployment"
   remote_task :bundle do
     puts "Exec bundle"
-    run "pwd; cd #{current_release}; bundle install --deployment --without development"
+    run "cd #{current_release}; bundle install --deployment --without development"
   end
 
 end
