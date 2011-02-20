@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 set :application, "aydamaster.ru"
 set :domain, "aydamaster.ru"
-set :domain, "94.232.60.71"
 set :rails_env, "production"
 set :deploy_to, "/home/wwwdata/aydamaster.ru"
 # set :revision,   'develop'
 set :keep_releases,	3
 set :repository, 'ssh://dapi.orionet.ru/home/danil/code/aydamaster.ru/.git/'
 
-#set :web_command, "sudo /usr/local/etc/rc.d/nginx"
-set :web_command, "sudo /usr/local/sbin/nginx"
+set :web_command, "sudo apache2ctl"
 
 # for rails
 set :shared_paths, {
@@ -27,33 +25,20 @@ namespace :vlad do
   task "deploy" => %w[
       vlad:update
       vlad:migrate
-      vlad:web:reload
+      vlad:hoptoad
       vlad:cleanup
     ]
 
+      # vlad:web:reload
 
   remote_task :update do
     Rake::Task['vlad:share_configs'].invoke
     Rake::Task['vlad:bundle'].invoke
   end
   
-  # remote_task :setup do
-  #   Rake::Task['vlad:update_gems'].invoke
-  # end
-
-  #
-  # Fixes vlad/passenger bad latest_release path
-  #
-  remote_task :start_app => :fix_release
-  remote_task :fix_release do
-    puts "fix passenger release path"
-    #set :latest_release, current_release
-    set :deploy_timestamped, false # Такой метод больше понравился :)
-  end
-
+  desc "update gem's on the server"
   remote_task :update_gems do
-    run "sudo gem update --system"
-    #run "cd #{current_release}; bundle install --deployment"
+    run "gem update --system"
   end
   
   desc "Share config files (database.yml and settings"
@@ -62,16 +47,15 @@ namespace :vlad do
     run "cd #{current_release}/config/; scp #{local_link}/config/database.yml ." #  ; scp -r #{local_link}/config/settings* .
   end
 
-  #
-  # Hoptoad integration
-  #
-  # rake hoptoad:deploy TO=#{rails_env} REVISION=#{current_revision} REPO=#{repository} USER=#{local_user}
-  # rake hoptoad:deploy TO=$RAILS_ENV REVISION=`git rev-parse HEAD` USER=`whoami` REPO=`git remote -v show | cut -f 2`
+  desc "hoptoad integration"
+  remote_task :hoptoad do
+     run "pwd; cd #{current_release}; echo rake hoptoad:deploy TO=#{rails_env} REVISION=#{revision} USER=`whoami` REPO=#{repository}"
+  end
   
   desc "Exec bundle --deployment"
   remote_task :bundle do
     puts "Exec bundle"
-    run "cd #{current_release}; sudo bundle --without development --without test" # На FreeBSD только через sudo
+    run "pwd; cd #{current_release}; bundle install --deployment --without development"
   end
 
 end
