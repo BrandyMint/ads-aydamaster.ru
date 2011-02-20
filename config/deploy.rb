@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 set :application, "aydamaster.ru"
-set :domain, "chebytoday.ru"
+set :domain, "aydamaster.ru"
+set :domain, "94.232.60.71"
 set :rails_env, "production"
-set :deploy_to, "/usr/local/www/aydamaster.ru"
+set :deploy_to, "/home/wwwdata/aydamaster.ru"
 # set :revision,   'develop'
 set :keep_releases,	3
 set :repository, 'ssh://dapi.orionet.ru/home/danil/code/aydamaster.ru/.git/'
@@ -72,23 +73,5 @@ namespace :vlad do
     puts "Exec bundle"
     run "cd #{current_release}; sudo bundle --without development --without test" # На FreeBSD только через sudo
   end
-
-  # Fix vlad's mistake
-  remote_task :migrate2, :roles => :app do
-    break unless target_host == Rake::RemoteTask.hosts_for(:app).first
-    
-    directory = case migrate_target.to_sym
-                when :current then current_path
-                when :latest  then current_release
-                else
-                  raise(ArgumentError,
-                        "unknown migration target #{migrate_target.inspect}")
-                end
-
-    run ["cd #{directory}",
-         "#{rake_cmd} RAILS_ENV=#{rails_env} db:migrate #{migrate_args}"
-        ].join(" && ")
-  end
-
 
 end

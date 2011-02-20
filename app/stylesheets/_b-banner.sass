@@ -6,15 +6,15 @@ $banner_image_width: 120px + $image_border2*2
 $banner_info_width: 180px
 $banner_states_width: 100px
 $banner_height: 90px
-$b-banner_width: $banner_image_width + $banner_info_width + 27px + $image_border1*1.2*2
-$banner_block_height: 90px + ($image_border1*1.2)*2
+$b-banner_width: $banner_image_width + $banner_info_width + 30px + $image_border1*1.2*2
+$banner_block_height: 90px + ($image_border1*1.2)*2 - 3px
 
 .b-full-banner
   float: left
   // border: 1px dashed green
   width: 2px + $b-banner_width + 30px + $banner_states_width
-  height: $banner_block_height + 30px
-  margin: 0px 15px 25px 0px
+  height: $banner_block_height + 20px
+  margin: 0px 5px 15px 0px
 
   .banner_states
     float: left
@@ -27,7 +27,7 @@ a.b-banner
   width: $b-banner_width
   height: $banner_block_height
   float: left
-  padding: 15px 0px 15px 15px
+  padding: 15px 0px 15px 18px
   /* +border-radius(5px)
   /* +gradient-bg(#eee, 5)
   // border: 1px solid #ccc

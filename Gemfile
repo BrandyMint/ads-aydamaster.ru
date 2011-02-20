@@ -65,6 +65,7 @@ gem "devise", :git => "git://github.com/plataformatec/devise.git"
 #gem "devise", ">=1.1.6"
 
 gem 'hoptoad_notifier'
+gem 'newrelic_rpm'
 
 gem "compass"
 gem "stateful_link", :git => "git://github.com/dapi/stateful_link.git"
@@ -88,9 +89,9 @@ end
 
 group :development do 
   gem "wirble", :require => "wirble"
-  gem 'vlad', ">=2.1.0" # :git => "https://github.com/seattlerb/vlad.git" 
+  gem 'vlad', ">=2.2.0" # :git => "https://github.com/seattlerb/vlad.git" 
   gem "vlad-git"
-  gem "vlad-nginx"
+  #gem "vlad-nginx"
   gem "hpricot"
   gem "ruby_parser"
   gem "nifty-generators"
