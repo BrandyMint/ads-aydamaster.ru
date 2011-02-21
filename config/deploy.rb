@@ -28,10 +28,9 @@ namespace :vlad do
   task "deploy" => %w[
       vlad:update
       vlad:hoptoad
+      vlad:start_app
       vlad:cleanup
     ]
-
-      # vlad:web:reload
 
   remote_task :update do
     # Rake::Task['vlad:share_configs'].invoke
