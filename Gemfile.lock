@@ -6,6 +6,12 @@ GIT
       rails (>= 3.0.0)
 
 GIT
+  remote: git://github.com/dapi/vlad-helpers.git
+  revision: 60787fc01d134a178fa30ceaaaa5863ade0b5a51
+  specs:
+    vlad-helpers (0.2.7)
+
+GIT
   remote: git://github.com/plataformatec/devise.git
   revision: bbaaefa995c3694d1462fc29768e9bb4d0661607
   specs:
@@ -68,7 +74,7 @@ GEM
     factory_girl_rails (1.0.1)
       factory_girl (~> 1.3)
       railties (>= 3.0.0)
-    ffi (1.0.5)
+    ffi (1.0.6)
       rake (>= 0.8.7)
     formtastic (1.2.3)
       actionpack (>= 2.3.7)
@@ -234,4 +240,5 @@ DEPENDENCIES
   timecop
   vlad (>= 2.2.0)
   vlad-git
+  vlad-helpers!
   wirble

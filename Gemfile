@@ -91,6 +91,7 @@ group :development do
   gem "wirble", :require => "wirble"
   gem 'vlad', ">=2.2.0" # :git => "https://github.com/seattlerb/vlad.git" 
   gem "vlad-git"
+  gem 'vlad-helpers', :git => 'git://github.com/dapi/vlad-helpers.git'
   #gem "vlad-nginx"
   gem "hpricot"
   gem "ruby_parser"

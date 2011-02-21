@@ -53,7 +53,6 @@ module ApplicationHelper
           link_to( label, url )
         end }
       )
-    
   end
 
 
