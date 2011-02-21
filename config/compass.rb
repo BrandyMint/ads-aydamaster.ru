@@ -10,3 +10,13 @@ environment = Compass::AppIntegration::Rails.env
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
 preferred_syntax = :sass
+output_style = environment.to_s == 'production' ? :compressed : :nested
+
+
+# Sass::Plugin.options[:style] = case RAILS_ENV
+#   when 'production' then :compressed
+#   when 'staging' then :compact
+#   when 'development' then :expanded
+#   else
+#     :nested
+# end
