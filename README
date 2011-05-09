@@ -1,3 +1,17 @@
+= Архитектура системы
+
+1. nginx перенаправляет запросы на статику:
+** asset*.aydamaster.ru
+** rotator*.aydamaster.ru
+** click.aydamaster.ru
+** www.aydamaster.ru
+
+2. click.aydamaster.ru. Thin + event_machine. Редиректит на реальную ссылку и логгирует клик.
+3. rotator*.aydamaster.ru. Thin + event_machine. Редирект на нужный баннер и логгирование.
+4. www - рельсы
+
+---
+
 Сущности:
 
 user
