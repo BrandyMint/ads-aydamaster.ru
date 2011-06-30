@@ -5,5 +5,4 @@ if Rails.env.development?
   rescue LoadError => e
     puts "Unable to load Vlad #{e}."
   end
-  
 end

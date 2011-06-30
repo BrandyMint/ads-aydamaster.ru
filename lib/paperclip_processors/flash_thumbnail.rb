@@ -44,7 +44,7 @@ module Paperclip
     
     def initialize(file, options = {}, attachment = nil)
       super
-      @screenshot = options[:screenshot].to_i || 5
+      @screenshot = (options[:screenshot] || 5).to_i
     end
 
     def make

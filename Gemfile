@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 source 'http://rubygems.org'
 
-gem 'rails', '>= 3.0.4'
+gem 'rails', '>= 3.0.5'
 
 gem "rails-settings-cached", :require => "rails-settings"  
 
@@ -36,9 +36,9 @@ gem 'paperclip'
 
 gem "state_machine"
 gem "haml-rails"
-gem "formtastic"
+#gem "formtastic"
 # gem "formtastic_datepicker_inputs", :git => "https://github.com/demersus/formtastic_datepicker_inputs.git"
-gem "formtastic_jquery_ui"
+#gem "formtastic_jquery_ui"
 gem "simple_form"
 
 # Alternatives
@@ -68,7 +68,7 @@ gem 'hoptoad_notifier'
 gem 'newrelic_rpm'
 
 gem "compass"
-gem "stateful_link", :git => "git://github.com/dapi/stateful_link.git"
+gem "stateful_link" #, :git => "git://github.com/dapi/stateful_link.git"
 gem "russian", :git => "https://github.com/dima4p/russian.git"
 
 gem "loop_dance", ">=0.5.3"
